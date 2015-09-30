@@ -1,0 +1,704 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - 
+        Java Pairing-Based Cryptography Library : Schemes - Short signatures from the Weil pairing</title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Angelo De Caro" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../faq.html">FAQ</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/pairing.html">Pairing</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/element.html">Element</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+      
+  <li class="expanded">
+    
+          <a href="../docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/ecpg.html">Bilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+            
+            
+      
+                  
+      
+              
+          
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/rl_w12.html">Regular Languages [W'12]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+            
+            
+      
+              
+          
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <strong>SS [BLS'01]</strong>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="collapsed">
+    
+          <a href="../project-info.html">Project Information</a>
+              </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        
+    
+        <div class="section">
+<h2>Short signatures from the Weil pairing<a name="Short_signatures_from_the_Weil_pairing"></a></h2>
+            
+<div class="section">
+<h3>Authors<a name="Authors"></a></h3>
+                D. Boneh, B. Lynn, and H. Shacham.
+            </div>
+
+            
+<div class="section">
+<h3>Abstract<a name="Abstract"></a></h3>
+                We introduce a short signature scheme based on the Computational Diffie-Hellman assumption on certain
+                elliptic and hyper-elliptic curves. For standard security parameters, the signature length is about
+                half that of a DSA signature with a similar level of security. Our short signature scheme is designed
+                for systems where signatures are typed in by a human or are sent over a low-bandwidth channel. We survey
+                a number of properties of our signature scheme such as signature aggregation and batch verification.
+            </div>
+
+            
+<div class="section">
+<h3>URL<a name="URL"></a></h3>
+                <a class="externalLink" href="http://crypto.stanford.edu/~dabo/abstracts/weilsigs.html">
+                    http://crypto.stanford.edu/~dabo/abstracts/weilsigs.html
+                </a>
+            </div>
+        </div>
+
+        
+<div class="section">
+<h2>Usage<a name="Usage"></a></h2>
+
+<div>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.engines.BLS01Signer;
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.generators.BLS01KeyPairGenerator;
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.generators.BLS01ParametersGenerator;
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.params.BLS01KeyGenerationParameters;
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.params.BLS01Parameters;
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CipherParameters;
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CryptoException;
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.digests.SHA256Digest;
+<a name="l13"><span class="ln">13   </span></a>
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.assertFalse;
+<a name="l15"><span class="ln">15   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.assertTrue;
+<a name="l16"><span class="ln">16   </span></a>
+<a name="l17"><span class="ln">17   </span></a></span><span class="s2">/**
+<a name="l18"><span class="ln">18   </span></a> * </span><span class="s3">@author </span><span class="s2">Angelo De Caro (jpbclib@gmail.com)
+<a name="l19"><span class="ln">19   </span></a> */</span><span class="s1">
+<a name="l20"><span class="ln">20   </span></a></span><span class="s0">public class </span><span class="s1">BLS01 {
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a>    </span><span class="s0">public </span><span class="s1">BLS01() {
+<a name="l23"><span class="ln">23   </span></a>    }
+<a name="l24"><span class="ln">24   </span></a>
+<a name="l25"><span class="ln">25   </span></a>
+<a name="l26"><span class="ln">26   </span></a>    </span><span class="s0">public </span><span class="s1">BLS01Parameters setup() {
+<a name="l27"><span class="ln">27   </span></a>        BLS01ParametersGenerator setup = </span><span class="s0">new </span><span class="s1">BLS01ParametersGenerator();
+<a name="l28"><span class="ln">28   </span></a>        setup.init(PairingFactory.getPairingParameters(</span><span class="s4">&quot;params/curves/a.properties&quot;</span><span class="s1">));
+<a name="l29"><span class="ln">29   </span></a>
+<a name="l30"><span class="ln">30   </span></a>        </span><span class="s0">return </span><span class="s1">setup.generateParameters();
+<a name="l31"><span class="ln">31   </span></a>    }
+<a name="l32"><span class="ln">32   </span></a>
+<a name="l33"><span class="ln">33   </span></a>    </span><span class="s0">public </span><span class="s1">AsymmetricCipherKeyPair keyGen(BLS01Parameters parameters) {
+<a name="l34"><span class="ln">34   </span></a>        BLS01KeyPairGenerator keyGen = </span><span class="s0">new </span><span class="s1">BLS01KeyPairGenerator();
+<a name="l35"><span class="ln">35   </span></a>        keyGen.init(</span><span class="s0">new </span><span class="s1">BLS01KeyGenerationParameters(</span><span class="s0">null</span><span class="s1">, parameters));
+<a name="l36"><span class="ln">36   </span></a>
+<a name="l37"><span class="ln">37   </span></a>        </span><span class="s0">return </span><span class="s1">keyGen.generateKeyPair();
+<a name="l38"><span class="ln">38   </span></a>    }
+<a name="l39"><span class="ln">39   </span></a>
+<a name="l40"><span class="ln">40   </span></a>    </span><span class="s0">public byte</span><span class="s1">[] sign(String message, CipherParameters privateKey) {
+<a name="l41"><span class="ln">41   </span></a>        </span><span class="s0">byte</span><span class="s1">[] bytes = message.getBytes();
+<a name="l42"><span class="ln">42   </span></a>
+<a name="l43"><span class="ln">43   </span></a>        BLS01Signer signer = </span><span class="s0">new </span><span class="s1">BLS01Signer(</span><span class="s0">new </span><span class="s1">SHA256Digest());
+<a name="l44"><span class="ln">44   </span></a>        signer.init(</span><span class="s0">true</span><span class="s1">, privateKey);
+<a name="l45"><span class="ln">45   </span></a>        signer.update(bytes, </span><span class="s5">0</span><span class="s1">, bytes.length);
+<a name="l46"><span class="ln">46   </span></a>
+<a name="l47"><span class="ln">47   </span></a>        </span><span class="s0">byte</span><span class="s1">[] signature = </span><span class="s0">null</span><span class="s1">;
+<a name="l48"><span class="ln">48   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l49"><span class="ln">49   </span></a>            signature = signer.generateSignature();
+<a name="l50"><span class="ln">50   </span></a>        } </span><span class="s0">catch </span><span class="s1">(CryptoException e) {
+<a name="l51"><span class="ln">51   </span></a>            </span><span class="s0">throw new </span><span class="s1">RuntimeException(e);
+<a name="l52"><span class="ln">52   </span></a>        }
+<a name="l53"><span class="ln">53   </span></a>        </span><span class="s0">return </span><span class="s1">signature;
+<a name="l54"><span class="ln">54   </span></a>    }
+<a name="l55"><span class="ln">55   </span></a>
+<a name="l56"><span class="ln">56   </span></a>    </span><span class="s0">public boolean </span><span class="s1">verify(</span><span class="s0">byte</span><span class="s1">[] signature, String message, CipherParameters publicKey) {
+<a name="l57"><span class="ln">57   </span></a>        </span><span class="s0">byte</span><span class="s1">[] bytes = message.getBytes();
+<a name="l58"><span class="ln">58   </span></a>
+<a name="l59"><span class="ln">59   </span></a>        BLS01Signer signer = </span><span class="s0">new </span><span class="s1">BLS01Signer(</span><span class="s0">new </span><span class="s1">SHA256Digest());
+<a name="l60"><span class="ln">60   </span></a>        signer.init(</span><span class="s0">false</span><span class="s1">, publicKey);
+<a name="l61"><span class="ln">61   </span></a>        signer.update(bytes, </span><span class="s5">0</span><span class="s1">, bytes.length);
+<a name="l62"><span class="ln">62   </span></a>
+<a name="l63"><span class="ln">63   </span></a>        </span><span class="s0">return </span><span class="s1">signer.verifySignature(signature);
+<a name="l64"><span class="ln">64   </span></a>    }
+<a name="l65"><span class="ln">65   </span></a>
+<a name="l66"><span class="ln">66   </span></a>    </span><span class="s0">public static void </span><span class="s1">main(String[] args) {
+<a name="l67"><span class="ln">67   </span></a>        BLS01 bls01 = </span><span class="s0">new </span><span class="s1">BLS01();
+<a name="l68"><span class="ln">68   </span></a>
+<a name="l69"><span class="ln">69   </span></a>        </span><span class="s2">// Setup</span><span class="s1">
+<a name="l70"><span class="ln">70   </span></a>        AsymmetricCipherKeyPair keyPair = bls01.keyGen(bls01.setup());
+<a name="l71"><span class="ln">71   </span></a>
+<a name="l72"><span class="ln">72   </span></a>        </span><span class="s2">// Test same message</span><span class="s1">
+<a name="l73"><span class="ln">73   </span></a>        String message = </span><span class="s4">&quot;Hello World!&quot;</span><span class="s1">;
+<a name="l74"><span class="ln">74   </span></a>        assertTrue(bls01.verify(bls01.sign(message, keyPair.getPrivate()), message, keyPair.getPublic()));
+<a name="l75"><span class="ln">75   </span></a>
+<a name="l76"><span class="ln">76   </span></a>        </span><span class="s2">// Test different messages</span><span class="s1">
+<a name="l77"><span class="ln">77   </span></a>        assertFalse(bls01.verify(bls01.sign(message, keyPair.getPrivate()), </span><span class="s4">&quot;Hello Italy!&quot;</span><span class="s1">, keyPair.getPublic()));
+<a name="l78"><span class="ln">78   </span></a>    }
+<a name="l79"><span class="ln">79   </span></a>
+<a name="l80"><span class="ln">80   </span></a>}
+<a name="l81"><span class="ln">81   </span></a></span></pre></div>
+        </div>
+    
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

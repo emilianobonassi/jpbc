@@ -1,0 +1,986 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - 
+        Java Pairing-Based Cryptography Library : Docs - Pairing Functions</title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Angelo De Caro" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../faq.html">FAQ</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+          
+  <li class="expanded">
+    
+          <strong>Pairing</strong>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/element.html">Element</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+      
+  <li class="expanded">
+    
+          <a href="../docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/ecpg.html">Bilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+            
+      
+                  
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/rl_w12.html">Regular Languages [W'12]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ss_bls01.html">SS [BLS'01]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="collapsed">
+    
+          <a href="../project-info.html">Project Information</a>
+              </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        
+    
+        <div class="section">
+<h2>Pairing for Cryptography<a name="Pairing_for_Cryptography"></a></h2>
+
+            
+<div class="section">
+<h3>Bilinear Setting<a name="Bilinear_Setting"></a></h3>
+                
+<p>
+                Let <!-- MATH
+ $\mathbb{G}_1,\mathbb{G}_2$ -->
+                <span class="MATH"><img src="../images/pairing/img1.png" width="54" height="32" align="MIDDLE" border="0" alt="$ \mathbb{G}_1,\mathbb{G}_2$" /></span>
+                and
+                <!-- MATH
+$\mathbb{G}_T$ -->
+                <span class="MATH"><img src="../images/pairing/img2.png" width="29" height="32" align="MIDDLE" border="0" alt="$ \mathbb{G}_T$" /></span>
+                be cyclic groups of prime order
+                <span class="MATH"><img src="../images/pairing/img3.png" width="13" height="16" align="BOTTOM" border="0" alt="$ r$" /></span>
+                Let
+                <span class="MATH"><img src="../images/pairing/img4.png" width="20" height="30" align="MIDDLE" border="0" alt="$ g_1$" /></span>
+                be a generator of
+                <!-- MATH
+$\mathbb{G}_1$ -->
+                <span class="MATH"><img src="../images/pairing/img5.png" width="26" height="32" align="MIDDLE" border="0" alt="$ \mathbb{G}_1$" /></span>
+                and
+                <span class="MATH"><img src="../images/pairing/img6.png" width="20" height="30" align="MIDDLE" border="0" alt="$ g_2$" /></span>
+                be a generator of
+                <!-- MATH
+                 $\mathbb{G}_2$ -->
+                <span class="MATH"><img src="../images/pairing/img7.png" width="26" height="32" align="MIDDLE" border="0" alt="$ \mathbb{G}_2$" /></span>.
+                A <span class="em">bilinear pairing</span>
+                or <span class="em">bilinear map</span>
+                is an efficiently computable function
+                <!-- MATH
+$e : \mathbb{G}_1 \times \mathbb{G}_2 \leftarrow \mathbb{G}_T$ -->
+                <span class="MATH"><img src="../images/pairing/img8.png" width="142" height="32" align="MIDDLE" border="0" alt="$ e : \mathbb{G}_1 \times \mathbb{G}_2 \leftarrow \mathbb{G}_T$" /></span>
+                such that:
+
+                </p>
+
+                
+<ol style="list-style-type: decimal">
+                    
+<li>
+                        
+<p>
+                        <span class="em">Bilinearity</span>:
+                        for all <!-- MATH
+ $a,b\in\mathbb{Z}_r$ -->
+                        <span class="MATH"><img src="../images/pairing/img9.png" width="69" height="32" align="MIDDLE" border="0" alt="$ a,b\in\mathbb{Z}_r$" /></span>
+                        (the ring of integers modulo r)
+                        it holds that
+                        <!-- MATH
+ $e(g_1^a,g_2^b) =
+                        e(g_1,g_2)^{ab}$ -->
+                        <span class="MATH"><img src="../images/pairing/img10.png" width="165" height="38" align="MIDDLE" border="0" alt="$ e(g_1^a,g_2^b) = e(g_1,g_2)^{ab}$" /></span>
+                        </p>
+                    </li>
+                    
+<li>
+                        
+<p>
+                        <span class="em">Non-degeneracy</span>:
+                        <!-- MATH
+                         $e(g_1,g_2)\ne 1$ -->
+                        <span class="MATH"><img src="../images/pairing/img11.png" width="98" height="34" align="MIDDLE" border="0" alt="$ e(g_1,g_2)\ne 1$" /></span>
+                        </p>
+                    </li>
+                </ol>
+
+                
+<p>
+                The tuple
+                <!-- MATH
+$(r,g_1,g_2,\mathbb{G}_1,\mathbb{G}_2,\mathbb{G}_T)$ -->
+                <span class="MATH"><img src="../images/pairing/img12.png" width="162" height="34" align="MIDDLE" border="0" alt="$ (r,g_1,g_2,\mathbb{G}_1,\mathbb{G}_2,\mathbb{G}_T)$" /></span>
+                is called
+                <span class="em">asymmetric bilinear setting</span>.
+                On the other hand, if
+                <!-- MATH
+$\mathbb{G}_1=\mathbb{G}_2=\mathbb{G}$ -->
+                <span class="MATH"><img src="../images/pairing/img13.png" width="107" height="32" align="MIDDLE" border="0" alt="$ \mathbb{G}_1=\mathbb{G}_2=\mathbb{G}$" /></span>
+                and g is a generator of
+                <!-- MATH
+$\mathbb{G}$ -->
+                <span class="MATH"><img src="../images/pairing/img14.png" width="18" height="16" align="BOTTOM" border="0" alt="$ \mathbb{G}$" /></span>
+                then the tuple
+                <!-- MATH
+$(r,g,\mathbb{G},\mathbb{G}_T)$ -->
+                <span class="MATH"><img src="../images/pairing/img15.png" width="95" height="34" align="MIDDLE" border="0" alt="$ (r,g,\mathbb{G},\mathbb{G}_T)$" /></span> is called
+                <span class="em">symmetric bilinear setting</span>.
+                In the symmetric setting the order of
+                <!-- MATH
+$\mathbb{G}$ -->
+                <span class="MATH"><img src="../images/pairing/img14.png" width="18" height="16" align="BOTTOM" border="0" alt="$ \mathbb{G}$" /></span>
+                and
+                <!-- MATH
+$\mathbb{G}_T$ -->
+                <span class="MATH"><img src="../images/pairing/img2.png" width="29" height="32" align="MIDDLE" border="0" alt="$ \mathbb{G}_T$" /></span>
+                need not to be prime.
+                </p>
+
+                
+<p>
+                The cryptographic relevance of a bilinear mapping stems from the fact
+                that in cyclic
+                groups that admit such a mapping the
+                <span class="em">Decisional Diffie-Hellman</span>
+                assumption does not hold.
+                Indeed, given
+                <!-- MATH
+$(g,g^x,g^y,g^z)$ -->
+                <span class="MATH"><img src="../images/pairing/img16.png" width="101" height="34" align="MIDDLE" border="0" alt="$ (g,g^x,g^y,g^z)$" /></span>
+                it is possible to check if
+                <span class="MATH"><img src="../images/pairing/img17.png" width="56" height="30" align="MIDDLE" border="0" alt="$ z=xy$" /></span>
+                (and thus solve the Decisional DH problem) by testing
+                <span class="MATH"><img src="../images/pairing/img18.png" width="59" height="34" align="MIDDLE" border="0" alt="$ e(g,g^z)$" /></span>
+                and
+                <!-- MATH
+$e(g^x,g^y)$ -->
+                <span class="MATH"><img src="../images/pairing/img19.png" width="68" height="34" align="MIDDLE" border="0" alt="$ e(g^x,g^y)$" /></span>
+                for equality.
+
+                </p>
+            </div>
+
+            
+<div class="section">
+<h3>Multilinear Setting<a name="Multilinear_Setting"></a></h3>
+                
+<p>
+                An <span class="MATH"><img src="../images/pairing/img20.png" width="12" height="16" align="BOTTOM" alt="$ \ell$" /></span>-group system consists of <span class="MATH"><img src="../images/pairing/img20.png" width="12" height="16" align="BOTTOM" alt="$ \ell$" /></span>
+                cyclic groups <!-- MATH
+ $\mathbb{G}_1,\ldots,\mathbb{G}_\ell$ -->
+                <span class="MATH"><img src="../images/pairing/img21.png" width="84" height="32" align="MIDDLE" alt="$ \mathbb{G}_1,\ldots,\mathbb{G}_\ell$" /></span>
+                of prime order <span class="MATH"><img src="../images/pairing/img3.png" width="13" height="16" align="BOTTOM" alt="$ r$" /></span>, along with bilinear maps
+                <!-- MATH
+ $e_{i,j} : \mathbb{G}_i \times  \mathbb{G}_j \rightarrow \mathbb{G}_{i+j}$ -->
+                <span class="MATH"><img src="../images/pairing/img22.png" width="166" height="32" align="MIDDLE" alt="$ e_{i,j} : \mathbb{G}_i \times \mathbb{G}_j \rightarrow \mathbb{G}_{i+j}$" /></span>
+                for all <span class="MATH"><img src="../images/pairing/img23.png" width="58" height="31" align="MIDDLE" alt="$ i,j\geq 1$" /></span>
+                with <!-- MATH
+ $i+j\leq\ell$ -->
+                <span class="MATH"><img src="../images/pairing/img24.png" width="70" height="32" align="MIDDLE" alt="$ i+j\leq\ell$" /></span>.
+                Let <span class="MATH"><img src="../images/pairing/img25.png" width="18" height="30" align="MIDDLE" alt="$ g_i$" /></span> be a canonical generator of
+                <!-- MATH
+ $\mathbb{G}_i$ -->
+                <span class="MATH"><img src="../images/pairing/img26.png" width="23" height="32" align="MIDDLE" alt="$ \mathbb{G}_i$" /></span>,
+                the map <!-- MATH
+ $e_{i,j}(g_i^a,g_j^b)=g_{i+j}^{ab}$ -->
+                <span class="MATH"><img src="../images/pairing/img27.png" width="135" height="38" align="MIDDLE" alt="$ e_{i,j}(g_i^a,g_j^b)=g_{i+j}^{ab}$" /></span>.
+                Finally, it can also be useful to define the group
+                <!-- MATH
+ $\mathbb{G}_0=\mathbb{Z}_{r}$ -->
+                <span class="MATH"><img src="../images/pairing/img28.png" width="68" height="32" align="MIDDLE" alt="$ \mathbb{G}_0=\mathbb{Z}_{r}$" /></span>
+                of exponents to which this pairing  naturally extends.
+                </p>
+                
+<p>
+                The tuple
+                <!-- MATH
+ $\{r,\{\mathbb{G}_i,g_i\}_{i\in[\ell]}, \{e_{i,j}\}_{i,j\geq 1, i+j\leq\ell}\}$ -->
+                <span class="MATH"><img src="../images/pairing/img29.png" width="245" height="34" align="MIDDLE" alt="$ \{r,\{\mathbb{G}_i,g_i\}_{i\in[\ell]}, \{e_{i,j}\}_{i,j\geq 1, i+j\leq\ell}\}$" /></span>
+                is called
+                <span class="em">multilinear setting</span>.
+                </p>
+            </div>
+
+            <a name="initializing"></a>
+            
+<div class="section">
+<h3>Initializing Pairings<a name="Initializing_Pairings"></a></h3>
+                
+<p>
+                    The
+                    <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                    interface provides access to the algebraic structures underlying the pairing computation
+                    and the pairing function.
+                </p>
+
+                
+<p>
+                    The easiest way to obtain an instance of the
+                    <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                    interface is by using the factory provided by JPBC.
+                    The factory takes in input the pairing parameters
+                    and instantiates the appropriate classes.
+                    To generate the pairing parameters look at this
+                    <a href="./pg.html">page</a>.
+                </p>
+
+                
+<p>
+                    Let's now see how to use the factory.
+                </p>
+
+                
+<p>
+                    Assume that the pairing parameters are stored in a file
+                    called <tt>params.properties</tt> which is available in the working director.
+                    Then, the following code can be used to instantiate the Pairing interface
+                    with parameters loaded from <tt>params.properties</tt>.
+                </p>
+
+<div class="source">
+<pre>import it.unisa.dia.gas.jpbc.*;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+
+Pairing pairing = PairingFactory.getPairing(&quot;params.properties&quot;);
+</pre></div>
+                
+<p>
+                    For bilinear maps only,
+                    to use the PBC wrapper and gain in performance,
+                    the <tt>usePBCWhenPossible</tt> property of the pairing
+                    factory must be set.
+                </p>
+
+<div class="source">
+<pre>PairingFactory.getInstance().setUsePBCWhenPossible(true);</pre></div>
+                
+<p>
+                    Notice that, to effectively use the wrapper
+                    the <tt>usePBCWhenPossible</tt> property must be set before invoking
+                    the <tt>getPairing</tt> method.
+                </p>
+                
+<p>
+                    Moreover, if PBC and the JPBC wrapper are not installed properly then
+                    the factory will resort to the JPBC pairing implementation.
+                    <br />
+                    The instructions to properly setup the PBC wrapper are <a href="./pbcwrapper.html">here</a>.
+                </p>
+            </div>
+
+            <a name="accessing"></a>
+            
+<div class="section">
+<h3>Accessing Algebraic Structures<a name="Accessing_Algebraic_Structures"></a></h3>
+            
+<p>
+                The <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                interface provides methods to access the algebraic structures
+                involved in the pairing computation.
+                Here are the methods:
+            </p>
+
+
+<div class="source">
+<pre>/* Return Zr */
+Field Zr = pairing.getZr();
+
+/* Return G1 */
+Field G1 = pairing.getG1();
+
+/* Return G2 */
+Field G2 = pairing.getG2();
+
+/* Return GT */
+Field GT = pairing.getGT();
+</pre></div>
+
+                
+<p>
+                These algebraic structures can be also accessed by index
+                with the following mapping.
+                </p>
+
+
+<div class="source">
+<pre>/* Return Zr */
+Field Zr = pairing.getFieldAt(0);
+
+/* Return G1 */
+Field G1 = pairing.getFieldAt(1);
+
+/* Return G2 */
+Field G2 = pairing.getFieldAt(2);
+
+/* Return GT */
+Field GT = pairing.getFieldAt(3);
+</pre></div>
+                
+<p>
+                This is especially useful when dealing with multilinear maps
+                to access the algebraic structures at different levels.
+                <br />
+                The number of algebraic structures available is given by
+                the degree of the pairing that can be obtained by invoking the following method.
+                </p>
+
+
+<div class="source">
+<pre>int degree = pairing.getDegree();</pre></div>
+
+                
+<p>
+                In particular, there are
+                <tt>degree+1</tt> algebraic structures available indexed from
+                <tt>0</tt> to <tt>degree</tt>.
+                </p>
+
+                
+<p>
+                Finally, elements of these algebraic structures can be initialized and manipulated
+                for cryptographic operations as shown
+                <a href="./field.html">here</a>.
+                </p>
+            </div>
+
+
+            <a name="applying"></a>
+            
+<div class="section">
+<h3>Applying pairings<a name="Applying_pairings"></a></h3>
+                
+<p>
+                    The <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                    interface provides methods to apply the pairing function.
+
+                    Given two elements <tt>Element in1, in2</tt>, belonging
+                    to the appropriate algebraic structures, their pairing
+                    can be computed by invoking the <tt>pairing</tt>
+                    method on input <tt>in1</tt> and <tt>in2</tt>
+                    as follows:
+                </p>
+
+<div class="source">
+<pre>Element out = pairing.pairing(in1, in2);</pre></div>
+
+                
+<p>
+                    Furthermore, the <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                    interface let us compute the product of pairings.
+                    Given two vectors of the same length <tt>Element[] in1, in2</tt>
+                    of elements belonging to the appropriate algebraic structures,
+                    their product pairing can be computed by invoking the <tt>pairing</tt>
+                    method on input <tt>in1</tt> and <tt>in2</tt>
+                    as follows:
+                </p>
+
+<div class="source">
+<pre>
+Element out = pairing.pairing(in1, in2);
+</pre></div>
+            </div>
+
+            <a name="preprocessing"></a>
+            
+<div class="section">
+<h3>Preprocessing<a name="Preprocessing"></a></h3>
+                
+<p>
+                    If it is known in advance that a particular value
+                    will be paired several times
+                    then time can be saved in the
+                    long run by using preprocessing.
+                </p>
+
+
+<div class="source">
+<pre>
+/* Get ready to perform a pairing whose first input is in1,
+store the results of time-saving precomputation in ppp. */
+
+Element in1 = pairing.getG1().newRandomElement();
+PairingPreProcessing ppp = pairing.pairing(in1);
+
+/* Compute the pairing using in2 and the preprocessed information
+stored in ppp. The inputs to the pairing are the element
+previously used to initialize ppp and the element in2. */
+
+Element in2 = pairing.getG2().newRandomElement();
+Element out = ppp.pairing(in2);
+</pre></div>
+
+                
+<p>
+                    The result of the precomputation can be stored to be used later.
+                    The following code convert
+                    <tt>ppp</tt>
+                    to a byte array:
+                </p>
+
+<div class="source">
+<pre>
+byte[] pppBytes = ppp.toBytes();
+</pre></div>
+                
+<p>
+                    To convert the byte array to an instance of the PairingPreProcessing interface
+                    use the following code:
+                </p>
+
+<div class="source">
+<pre>
+PairingPreProcessing ppp = pairing.getPairingPreProcessingFromBytes(pppBytes);
+</pre></div>
+            </div>
+        </div>
+    
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

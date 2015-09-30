@@ -1,0 +1,836 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - 
+        Java Pairing-Based Cryptography Library : Docs - Elliptic Curve Pairing Parameters Generators</title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Angelo De Caro" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../faq.html">FAQ</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/pairing.html">Pairing</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/element.html">Element</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+          
+  <li class="expanded">
+    
+          <a href="../docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+          
+  <li class="expanded">
+    
+          <strong>Bilinear Maps</strong>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+            
+      
+                  
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/rl_w12.html">Regular Languages [W'12]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ss_bls01.html">SS [BLS'01]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="collapsed">
+    
+          <a href="../project-info.html">Project Information</a>
+              </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        
+    
+        <script type="text/javascript" src="http://latex.codecogs.com/latexit.js"></script>
+
+        
+<div class="section">
+<h2>Bilinear Pairing Parameters Generators<a name="Bilinear_Pairing_Parameters_Generators"></a></h2>
+            
+<p>
+                Notice that, the parameters generated by PBC can be used by JPBC without any known issue.
+            </p>
+
+            <a name="TypeA"></a>
+            
+<div class="section">
+<h3>Type A<a name="Type_A"></a></h3>
+                
+<p>
+                    Type A pairings are constructed on the curve
+                    <span lang="latex">y^2=x^3+x</span>
+                    over the field
+                    <span lang="latex">\mathbb{F}_q</span>
+                    for some prime
+                    <span lang="latex">q=3 \mod 4</span>.
+                    Both
+                    <span lang="latex">\mathbb{G}_1</span> and
+                    <span lang="latex">\mathbb{G}_2</span> are the group of points
+                    <span lang="latex">E(\mathbb{F}_q)</span>,
+                    so this pairing is symmetric. The order
+                    <span lang="latex">r</span> is some prime factor of
+                    <span lang="latex">q+1</span>.
+                </p>
+
+                
+<p>
+                    Further information are available
+                    <a class="externalLink" href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                </p>
+
+                
+<p>
+                    For Type A pairing, JPBC provides a ported and a PBC wrapped generator.
+                    Here is the code to use them.
+                </p>
+
+                
+<div class="source">
+<pre>import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeACurveGenerator;
+
+int rBits = 160;
+int qBits = 512;
+
+// JPBC Type A pairing generator...
+ParametersGenerator pg = new TypeACurveGenerator(rBits, qBits);
+// PBC Type A pairing generator...
+ParametersGenerator pbcPg = new PBCTypeACurveGenerator(rBits, qBits);
+</pre></div>
+
+                <a name="TypeA1"></a>
+                
+<p>
+                    Type A1 uses the same equation, but have different fields.
+                    It supports fields of composite order.
+                    <br />
+                    Also for Type A1 pairing, JPBC provides a ported and a PBC wrapped generator.
+                    Here is the code to use them.
+                </p>
+
+                
+<div class="source">
+<pre>import it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeA1CurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeA1CurveGenerator;
+
+// JPBC Type A1 pairing generator...
+ParametersGenerator parametersGenerator = new TypeA1CurveGenerator(
+    3,  // the number of primes
+    517 // the bit length of each prime
+);
+
+// PBC Type A1 pairing generator. No parametrization in this case is possible.
+// By default the generator uses two primes of 512 bit length each.
+ParametersGenerator pbcPg = new PBCTypeA1CurveGenerator();
+                </pre></div>
+            </div>
+
+            <a name="TypeD"></a>
+            
+<div class="section">
+<h3>Type D<a name="Type_D"></a></h3>
+                These are ordinary curves with embedding degree 6, whose orders are prime or a prime multiplied by a small constant.
+                
+<p>
+                    Further information are available
+                    <a class="externalLink" href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                </p>
+
+                
+<p>
+                    For Type D pairing, JPBC provides only the PBC wrapped generator.
+                    Here is the code to use it.
+                </p>
+                
+                
+<div class="source">
+<pre>import it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeDCurveGenerator;
+
+// Init the generator...
+int discriminant = 9563;
+ParametersGenerator parametersGenerator = new PBCTypeDParametersGenerator(discriminant);
+</pre></div>
+            </div>
+
+            <a name="TypeE"></a>
+            
+<div class="section">
+<h3>Type E<a name="Type_E"></a></h3>
+                
+<p>
+                    The CM (Complex Multiplication) method of constructing
+                    elliptic curves starts with the Diophantine equation
+                    <span lang="latex">DV^2=4q-t^3</span>
+                    If
+                    <span lang="latex">t=2</span>
+                    and
+                    <span lang="latex">q=Dr^2h^2+1</span> for some
+                    prime
+                    <span lang="latex">r</span>
+                    (which we choose to be a Solinas prime) and some
+                    integer
+                    <span lang="latex">h</span>, we find that this equation is easily solved with
+                    <span lang="latex">V = 2rh</span>.
+                </p>
+
+                
+<p>
+                    Thus it is easy to find a curve (over the field
+                    <span lang="latex">\mathbb{F}_q</span>.
+                    with order
+                    <span lang="latex">q-1</span>.
+                    Note
+                    <span lang="latex">r^2</span>.
+                    divides
+                    <span lang="latex">q-1</span>.
+                    thus we have an embedding degree of 1.
+                </p>
+
+                
+<p>
+                    Further information are available
+                    <a class="externalLink" href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                </p>
+
+                
+<p>
+                    For Type E pairing, JPBC provides a ported and a PBC wrapped generator.
+                    Here is the code to use them.
+                </p>
+
+                
+<div class="source">
+<pre>import it.unisa.dia.gas.plaf.jpbc.pairing.e.TypeECurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeECurveGenerator;
+
+int rBits = 160;
+int qBits = 1024;
+
+// JPBC Type E pairing generator...
+ParametersGenerator pg = new TypeECurveGenerator(rBits, qBits);
+// PBC Type E pairing generator...
+ParametersGenerator pbcPg = new PBCTypeECurveGenerator(rBits, qBits);
+                </pre></div>
+            </div>
+
+
+            <a name="TypeF"></a>
+            
+<div class="section">
+<h3>Type F<a name="Type_F"></a></h3>
+                
+<p>
+                    Using carefully crafted polynomials, k = 12 pairings can be constructed.
+                    Only 160 bits are needed to represent elements of one group,
+                    and 320 bits for the other.
+                    Also, embedding degree k = 12 allows higher security short signatures.
+                    (k = 6 curves cannot be used to scale security from 160-bits
+                    to say 256-bits because finite field attacks are subexponential.)
+                    <br />
+                    Discovered by Barreto and Naehrig, &quot;Pairing-friendly elliptic curves of prime order&quot;.
+                </p>
+
+                
+<p>
+                    Further information are available
+                    <a class="externalLink" href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                </p>
+
+                
+<p>
+                    For Type F pairing, JPBC provides a ported and a PBC wrapped generator.
+                    Here is the code to use them.
+                </p>
+
+                
+<div class="source">
+<pre>import it.unisa.dia.gas.plaf.jpbc.pairing.f.TypeFCurveGenerator;
+import it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeFCurveGenerator;
+
+int rBits = 160;
+
+// JPBC Type F pairing generator...
+ParametersGenerator pg = new TypeFCurveGenerator(rBits);
+// PBC Type F pairing generator...
+ParametersGenerator pbcPg = new PBCTypeFCurveGenerator(rBits);
+                </pre></div>
+            </div>
+
+
+            <a name="TypeG"></a>
+            
+<div class="section">
+<h3>Type G<a name="Type_G"></a></h3>
+                
+<p>
+                Another construction based on the CM method.
+                Discovered by Freeman, &quot;Constructing pairing-friendly elliptic curves with embedding degree 10.&quot;
+                </p>
+                
+<p>
+                    Further information are available
+                    <a class="externalLink" href="http://crypto.stanford.edu/pbc/manual/ch08s09.html">here</a>.
+                </p>
+
+                
+<p>
+                    For Type G pairing, JPBC provides only the PBC wrapped generator.
+                    Here is the code to use it.
+                </p>
+
+                
+<div class="source">
+<pre>import it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeGCurveGenerator;
+
+// Init the generator...
+int discriminant = 35707;
+ParametersGenerator parametersGenerator = new PBCTypeGParametersGenerator(discriminant);
+                </pre></div>
+            </div>
+
+        </div>
+    
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

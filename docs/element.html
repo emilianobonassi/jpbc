@@ -1,0 +1,965 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - 
+        Java Pairing-Based Cryptography Library : Docs - Element Functions</title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Angelo De Caro" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../faq.html">FAQ</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/pairing.html">Pairing</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+          
+  <li class="expanded">
+    
+          <strong>Element</strong>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+      
+  <li class="expanded">
+    
+          <a href="../docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/ecpg.html">Bilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+            
+      
+                  
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/rl_w12.html">Regular Languages [W'12]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ss_bls01.html">SS [BLS'01]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="collapsed">
+    
+          <a href="../project-info.html">Project Information</a>
+              </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        
+    
+        <div class="section">
+<h2>Elements<a name="Elements"></a></h2>
+            
+<p>
+                Elements belonging to an algebraic structure (groups, rings and fields) are accessible through the
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Element.html">
+                    <tt>Element</tt>
+                </a>
+                interface that represents a
+                <i>mutable</i>
+                value.
+            </p>
+
+            <a name="initializing"></a>
+            
+<div class="section">
+<h3>Initializing Elements<a name="Initializing_Elements"></a></h3>
+                
+<p>
+                    Instances of the
+                    <tt>Element</tt> interface can be obtained
+                    from an algebraic structure
+                    as shown
+                    <a href="./field.html#initializing">here</a>.
+                    <br />
+                    <br />
+                    This is a brief example that shows how to get a random value.
+</p>
+<div class="source">
+<pre>
+Field G1 = pairing.getG1();
+Element e = G1.newRandomElement();
+</pre></div>
+                
+            </div>
+
+            <a name="assigning"></a>
+            
+<div class="section">
+<h3>Assigning Elements<a name="Assigning_Elements"></a></h3>
+                
+<p>
+                    The following methods can be used to assign specific values to elements.
+                    When integers are assigned,
+                    they are mapped to algebraic structures canonically
+                    if it makes sense (e.g. rings and fields).
+                </p>
+
+                
+<div class="source">
+<pre>/* Sets an element to zero. */
+
+e.setToZero();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Sets an element to one. */
+
+e.setToOne();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* If the element lies in a finite algebraic structure,
+assigns a uniformly random element to it. */
+
+e.setToRandom();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Sets an element to an int. */
+
+e.set(5);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Sets an element to a BigInteger. */
+
+e.set(new BigInteger(&quot;126785438&quot;));
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Returns a duplicate of e. Notice that
+if e is immutable then the copy is mutable.*/
+
+Element duplicate = e.duplicate();
+                </pre></div>
+            </div>
+
+            <a name="arithmetic"></a>
+            
+<div class="section">
+<h3>Element Arithmetic<a name="Element_Arithmetic"></a></h3>
+                The addition and the multiplication functions perform addition and multiplication operations in rings and
+                fields. For groups, both addition and multiplication represent the group operation (and similarly both
+                <tt>0</tt>
+                and
+                <tt>1</tt>
+                represent the identity element).
+
+                
+<div class="source">
+<pre>/* Performs the addition between e and a.*/
+
+e.add(a);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the substraction between e and a.
+
+e.sub(a);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the multiplication between e and a. */
+
+e.mul(a);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the multiplication between e and an int. */
+
+e.mul(5);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the multiplication between e and a BigInteger. */
+
+e.mul(new BigInteger(&quot;5&quot;));
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the multiplication between e and z
+where z must be an element of a integer mod ring (i.e. Zr for some r). */
+
+Element z = pairing.getZr().newRandomElement();
+e.mulZn(z);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the division between e and a. */
+
+e.div(a);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the doubling of e. */
+
+e.twice();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the halving of e. */
+
+e.halve();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the inversion of e. */
+
+e.invert();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the squaring of e. */
+
+e.square();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the negation of e. */
+
+e.negate();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Performs the square root of e. */
+
+e.sqrt();
+                </pre></div>
+            </div>
+
+            <a name="exponentiation"></a>
+            
+<div class="section">
+<h3>Element Exponentiation<a name="Element_Exponentiation"></a></h3>
+                
+<div class="source">
+<pre>/* Raises e to a BigInteger. */
+
+e.pow(BigInteger.valueOf(5));
+                </pre></div>
+
+                
+<div class="source">
+<pre>
+/* Raises e to a z which must be an element of a integer mod ring (i.e. Zr for some r). */
+
+Element z = pairing.getZr().newRandomElement();
+e.powZn(z);
+                </pre></div>
+
+            </div>
+
+            <a name="preprocessing"></a>
+            
+<div class="section">
+<h3>Preprocessing<a name="Preprocessing"></a></h3>
+                
+<p>
+                    If it knows in advance that a particular value will be raised several times
+                    then time can be saved in the long run by first calling the preprocessing function.
+                    The
+                    <a href="../java-docs/api/it/unisa/dia/gas/jpbc/ElementPowPreProcessing.html"><tt>ElementPowPreProcessing</tt></a>
+                    interface will do the job.
+                </p>
+
+                
+<div class="source">
+<pre>/* Prepare e to be raised and store preprocessing information in ppp.
+e will be not modified in any way.*/
+
+ElementPowPreProcessing ppp = e.pow();
+
+/* Now let's raise using ppp which returns a new element which contains the result of the operation. */
+
+Element out1 = ppp.pow(BigInteger.valueOf(5));
+
+Element out2 = ppp.pow(pairing.getZr().newRandomElement());
+                </pre></div>
+
+                The preprocessing information can be stored to be used later.
+                The following code convert <tt>ppp</tt> to a byte array:
+                
+<div class="source">
+<pre>
+byte[] pppBytes = ppp.toBytes();
+                </pre></div>
+                To get back an ElementPowPreProcessing object from a byte array
+                do the following
+                
+<div class="source">
+<pre>
+ElementPowPreProcessing ppp = e.getField().getElementPowPreProcessingFromBytes(pppBytes);
+                </pre></div>
+            </div>
+            
+            <a name="comparing"></a>
+            
+<div class="section">
+<h3>Comparing Elements<a name="Comparing_Elements"></a></h3>
+                                
+                
+<div class="source">
+<pre>/* Returns true if e is 1. */
+
+e.isOne();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Returns true if e is 0. */
+
+e.isZero();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Returns 0 if a and b are the same, non-zero otherwise. */
+
+a.compareTo(b);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Returns true if a and b are the same, false otherwise. */
+
+a.isEqual(b);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Returns true if e is a perfect square (quadratic residue), false otherwise. */
+
+e.isSqr();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* If e is zero, returns 0. For a non-zero value
+the behaviour depends on the algebraic structure. */
+
+e.sign();
+                </pre></div>
+            </div>
+
+            <a name="io"></a>
+            
+<div class="section">
+<h3>Import/Export Elements<a name="ImportExport_Elements"></a></h3>
+
+                
+<div class="source">
+<pre>/* Converts e to bytes. The number of bytes can be determined
+by calling e.getLengthInBytes(). */
+
+byte[] bytes = e.toBytes();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* To get back an Element from a byte array. */
+
+int bytesRead = e.setFromBytes(bytes);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* To get back an Element from a byte array starting from a given offset.
+
+int bytesRead = e.setFromBytes(bytes, offset);
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Sets e deterministically from a byte array.*/
+
+e.setFromHash(bytes, 0, bytes.length);
+                </pre></div>
+
+            </div>
+
+
+            <a name="immutable"></a>
+            
+<div class="section">
+<h3>Make Immutable<a name="Make_Immutable"></a></h3>
+                
+<p>
+                    For immutable elements the internal value cannot be modified after it is created.
+                    Then, any method designed to modify the internal value of an element will return
+                    a new element whose internal value represents the result of the computation carried on.
+                </p>
+
+                
+<div class="source">
+<pre>/* Returns <tt>true</tt> if e is immutable, <tt>false</tt> otherwise. */
+
+e.isImmutable();
+                </pre></div>
+
+                
+<div class="source">
+<pre>/* Returns an immutable copy of e. */
+
+Element immutable = e.getImmutable();
+                </pre></div>
+
+            </div>
+
+        </div>
+    
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

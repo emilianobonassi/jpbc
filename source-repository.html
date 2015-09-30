@@ -1,0 +1,644 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - Source Repository</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="faq.html">FAQ</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/pairing.html">Pairing</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/element.html">Element</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+      
+  <li class="expanded">
+    
+          <a href="docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/ecpg.html">Bilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+            
+      
+                  
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/rl_w12.html">Regular Languages [W'12]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ss_bls01.html">SS [BLS'01]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+            
+              
+          
+  <li class="expanded">
+    
+          <a href="project-info.html">Project Information</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="dependencies.html">Dependencies</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="team-list.html">Project Team</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="license.html">Project License</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <strong>Source Repository</strong>
+        </li>
+              </ul>
+        </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        <a name="Overview"></a>
+<div class="section">
+<h2>Overview<a name="Overview"></a></h2>This project uses <a class="externalLink" href="http://subversion.tigris.org/">Subversion</a> to manage its source code. Instructions on Subversion use can be found at <a class="externalLink" href="http://svnbook.red-bean.com/">http://svnbook.red-bean.com/</a>.</div><a name="Web_Access"></a>
+<div class="section">
+<h2>Web Access<a name="Web_Access"></a></h2>
+<p>The following is a link to the online source repository.</p>
+<div class="source">
+<pre><a class="externalLink" href="http://jpbc.svn.sourceforge.net/viewvc/jpbc/trunk/">http://jpbc.svn.sourceforge.net/viewvc/jpbc/trunk/</a></pre></div></div><a name="Anonymous_access"></a>
+<div class="section">
+<h2>Anonymous access<a name="Anonymous_access"></a></h2>
+<p>The source can be checked out anonymously from SVN with this command:</p>
+<div class="source">
+<pre>$ svn checkout https://jpbc.svn.sourceforge.net/svnroot/jpbc/trunk jpbc</pre></div></div><a name="Developer_access"></a>
+<div class="section">
+<h2>Developer access<a name="Developer_access"></a></h2>
+<p>Everyone can access the Subversion repository via HTTP, but Committers must checkout the Subversion repository via HTTPS.</p>
+<div class="source">
+<pre>$ svn checkout https://jpbc.svn.sourceforge.net/svnroot/jpbc/trunk jpbc</pre></div>
+<p>To commit changes to the repository, execute the following command to commit your changes (svn will prompt you for your password)</p>
+<div class="source">
+<pre>$ svn commit --username your-username -m &quot;A message&quot;</pre></div></div><a name="Access_from_behind_a_firewall"></a>
+<div class="section">
+<h2>Access from behind a firewall<a name="Access_from_behind_a_firewall"></a></h2>
+<p>For those users who are stuck behind a corporate firewall which is blocking HTTP access to the Subversion repository, you can try to access it via the developer connection:</p>
+<div class="source">
+<pre>$ svn checkout https://jpbc.svn.sourceforge.net/svnroot/jpbc/trunk jpbc</pre></div></div><a name="Access_through_a_proxy"></a>
+<div class="section">
+<h2>Access through a proxy<a name="Access_through_a_proxy"></a></h2>
+<p>The Subversion client can go through a proxy, if you configure it to do so. First, edit your &quot;servers&quot; configuration file to indicate which proxy to use. The file's location depends on your operating system. On Linux or Unix it is located in the directory &quot;~/.subversion&quot;. On Windows it is in &quot;%APPDATA%\Subversion&quot;. (Try &quot;echo %APPDATA%&quot;, note this is a hidden directory.)</p>
+<p>There are comments in the file explaining what to do. If you don't have that file, get the latest Subversion client and run any command; this will cause the configuration directory and template files to be created.</p>
+<p>Example: Edit the 'servers' file and add something like:</p>
+<div class="source">
+<pre>[global]
+http-proxy-host = your.proxy.name
+http-proxy-port = 3128
+</pre></div></div>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

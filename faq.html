@@ -1,0 +1,740 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - 
+        Java Pairing-Based Cryptography Library : FAQ</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Angelo De Caro" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <strong>FAQ</strong>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/pairing.html">Pairing</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/element.html">Element</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+      
+  <li class="expanded">
+    
+          <a href="docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/ecpg.html">Bilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+            
+      
+                  
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/rl_w12.html">Regular Languages [W'12]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ss_bls01.html">SS [BLS'01]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="collapsed">
+    
+          <a href="project-info.html">Project Information</a>
+              </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        
+    
+        <div class="section">
+<h2>FAQ<a name="FAQ"></a></h2>
+            
+<ol style="list-style-type: decimal">
+                
+<li>
+                    <a href="#htujpbc">How to use JPBC?</a>
+                </li>
+                
+<li>
+                    <a href="#witmep">Which is the main entry point?</a>
+                </li>
+                
+<li>
+                    <a href="#hwigaiotpi">How do I get an instance of the Pairing interface?</a>
+                </li>
+                
+<li>
+                    <a href="#wiae">What an Element is?</a>
+                </li>
+            </ol>
+        </div>
+
+
+        <a name="htujpbc"></a>
+        
+<div class="section">
+<h3>How to use JPBC?<a name="How_to_use_JPBC"></a></h3>
+            
+<p>
+                To use JPBC, add to your classpath the following jars:
+                        <span class="em"><tt>jpbc_2.0.0-api.jar</tt></span>
+                        and
+                        <span class="em"><tt>jpbc_2.0.0-plaf.jar</tt></span>.
+            </p>
+            
+<p>
+                To use the PBC Wrapper, a shared C library must be compiled
+                and installed properly as shown
+                <a class="externalLink" href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                Then, to use the wrapper, include the following jars:
+                    <span class="em"><tt>jpbc_2.0.0-pbc.jar</tt></span>
+                    and
+                    <span class="em"><tt>jna-3.1.0.jar</tt></span>.
+            </p>
+            
+<p>
+                To use the
+                <a href="docs/pairing.html">Multilinear Maps</a>,
+                include the following jar:
+                    <span class="em"><tt>jpbc_2.0.0-mm.jar</tt></span>.
+            </p>
+            
+<p>
+                To use the
+                <a href="schemes/schemes.html">cryptosystems</a>
+                provided by JPBC
+                include the following jars:
+                    <span class="em"><tt>jpbc-crypto-2.0.0.jar</tt></span>
+                    and
+                    <span class="em"><tt>bcprov-jdk16-1.46</tt></span>.
+            </p>
+
+        </div>
+
+        <a name="witmep"></a>
+        
+<div class="section">
+<h3>Which is the main entry point?<a name="Which_is_the_main_entry_point"></a></h3>
+            
+<p>
+                The main entry point is the
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                interface that provides access to the algebraic structures underlying the pairing computation
+                and the pairing function.
+            </p>
+        </div>
+
+        <a name="hwigaiotpi"></a>
+        
+<div class="section">
+<h3>How do I get an instance of the Pairing interface?<a name="How_do_I_get_an_instance_of_the_Pairing_interface"></a></h3>
+            
+<p>
+                The easiest way to obtain an instance of the
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><tt>Pairing</tt></a>
+                interface is by using the factory provided by JPBC.
+                The factory takes in input the pairing parameters
+                and instantiates the appropriate classes.
+                To generate the pairing parameters look at this
+                <a href="./docs/pg.html">page</a>.
+            </p>
+
+            
+<p>
+                Let's now see how to use the factory.
+            </p>
+
+            
+<p>
+                Assume that the pairing parameters are stored in a file
+                called <tt>params.properties</tt> which is available in the working director.
+                Then, the following code can be used to instantiate the Pairing interface
+                with parameters loaded from <tt>params.properties</tt>.
+            </p>
+            
+<div class="source">
+<pre>import it.unisa.dia.gas.jpbc.*;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+
+Pairing pairing = PairingFactory.getPairing(&quot;params.properties&quot;);
+            </pre></div>
+            
+<p>
+                For bilinear maps only,
+                to use the PBC wrapper and gain in performance,
+                the <tt>usePBCWhenPossible</tt> property of the pairing
+                factory must be set.
+            </p>
+            
+<div class="source">
+<pre>PairingFactory.getInstance().setUsePBCWhenPossible(true);</pre></div>
+            
+<p>
+                Notice that, to effectively use the wrapper
+                the <tt>usePBCWhenPossible</tt> property must be set before invoking
+                the <tt>getPairing</tt> method.
+            </p>
+            
+<p>
+                Moreover, if PBC and the JPBC wrapper are not installed properly then
+                the factory will resort to the JPBC pairing implementation.
+                <br />
+                The instructions to properly setup the PBC wrapper are <a href="./docs/pbcwrapper.html">here</a>.
+            </p>
+        </div>
+
+        <a name="wiae"></a>
+        
+<div class="section">
+<h3>What an Element is?<a name="What_an_Element_is"></a></h3>
+            
+<p>
+                The <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Element.html">
+                    <tt>Element</tt>
+                </a>
+                interface represents
+                elements belonging to an algebraic structure (groups, rings and fields).
+                This objects are mutable meaning that the internal value can be modified
+                by invoking appropriate methods.
+            </p>
+        </div>
+    
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

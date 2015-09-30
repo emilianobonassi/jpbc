@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>JPBC - 
+        Java Pairing-Based Cryptography Library : Schemes - Functional Encryption for Regular Languages</title>
+    <style type="text/css" media="all">
+      @import url("../css/maven-base.css");
+      @import url("../css/maven-theme.css");
+      @import url("../css/site.css");
+    </style>
+    <link rel="stylesheet" href="../css/print.css" type="text/css" media="print" />
+          <meta name="author" content="Angelo De Caro" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="jpbc, pbc, pairing, cryptography" />
+      </head>
+  <body class="composite">
+<!--    <div id="banner">
+        <a href="http://gas.dia.unisa.it/projects/jpbc/" id="bannerLeft">
+            <img id="bannerImage" src="http://gas.dia.unisa.it/projects/jpbc/images/banners/banner_4.jpg" alt="" width="1124"/>
+        </a>
+        <div class="clear">
+        <hr/>
+      </div>
+    </div>  -->
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+            <div class="xleft">
+        Last Published: 2015-09-30
+                  &nbsp;| Version: 2.0.0
+                      </div>
+            <div class="xright">
+          <a href="http://gas.dia.unisa.it/projects/jlbc/">jLBC</a>
+          |       <a href="http://crypto.stanford.edu/pbc/">PBC
+            </a>
+          |
+          <a href="http://sourceforge.net/projects/jpbc/">Sourceforge
+            </a>
+          |
+          <a href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&action=index&idSite=2&period=week&date=today">Piwik
+            </a>
+                | <a href="http://gas.dia.unisa.it/">GAS Lab</a>
+          | <!-- AddThis Button BEGIN -->
+            <a class="addthis_button" href="http://www.addthis.com/bookmark.php?v=250&amp;username=xa-4d60deb101a7e912"><img src="http://s7.addthis.com/static/btn/v2/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/></a>
+            <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#username=xa-4d60deb101a7e912"></script>
+            <!-- AddThis Button END -->
+              
+  
+
+  
+    
+            
+  
+        </div>
+        <div class="xcenter">
+          The Java Pairing Based Cryptography Library (JPBC)
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+                   <h5>JPBC Library</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../index.html">Introduction</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../download.html">Download</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../buildHowto.html">Build HowTo</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../contact.html">Contact</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../benchmark.html">Benchmark</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/android.html">Android</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../who.html">Who Uses JPBC?</a>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../faq.html">FAQ</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+  
+  <li class="none">
+    
+          <a href="../java-docs/api/index.html">Java Docs</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/pairing.html">Pairing</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#applying">Applying</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/pairing.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/field.html">Field</a>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/element.html">Element</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#initializing">Initializing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#assigning">Assigning</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#arithmetic">Arithmetic</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#exponentiation">Exponentiation</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#comparing">Comparing</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#io">Import/Export</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#immutable">Immutable</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/element.html#preprocessing">Preprocessing</a>
+        </li>
+              </ul>
+        </li>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+                    
+      
+  <li class="expanded">
+    
+          <a href="../docs/pg.html">Parameter Generators</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/ecpg.html">Bilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA">Type A</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeA1">Type A1</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeD">Type D</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeE">Type E</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeF">Type F</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/ecpg.html#TypeG">Type G</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../docs/mmpg.html">Multilinear Maps</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../docs/mmpg.html#ctl13">Over the Integers [CTL'13]</a>
+        </li>
+              </ul>
+        </li>
+              </ul>
+        </li>
+              
+  
+  <li class="none">
+    
+          <a href="../docs/pbcwrapper.html">PBC Wrapper</a>
+        </li>
+          </ul>
+          <h5>Crypto</h5>
+        <ul>
+              
+          
+              
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+                  
+      
+            
+      
+            
+      
+                  
+      
+              
+          
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html">Schemes</a>
+                <ul>
+                  
+          
+              
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+              
+          
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#fe">Functional Encryption</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghsw13.html">ABE for Circuits [GGHSW'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/abe_gghvv13.html">ABE for Circuits [GGHVV'13]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <strong>Regular Languages [W'12]</strong>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/uhibe_lw11.html">Unbounded HIBE [LW'11]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ip_lostw10.html">Inner Product [LOSTW'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ahibe_dip10.html">Anonymous HIBE [DIP'10]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/hve_ip08.html">HVE [IP'08]</a>
+        </li>
+              </ul>
+        </li>
+                  
+          
+              
+      
+            
+      
+              
+      
+  <li class="expanded">
+    
+          <a href="../schemes/schemes.html#ss">Signature</a>
+                <ul>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ss_bls01.html">SS [BLS'01]</a>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/ibs_ps06.html">IBS [PS'06]</a>
+        </li>
+              </ul>
+        </li>
+                  
+  
+  <li class="none">
+    
+          <a href="../schemes/kem.html">KEM</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+              
+      
+  <li class="collapsed">
+    
+          <a href="../project-info.html">Project Information</a>
+              </li>
+          </ul>
+                     
+                  <div id="customPoweredBy">
+                <!-- Piwik -->
+                <script type="text/javascript">
+                var pkBaseURL = (("https:" == document.location.protocol) ? "https://sourceforge.net/apps/piwik/jpbc/" : "http://sourceforge.net/apps/piwik/jpbc/");
+                document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+                </script><script type="text/javascript">
+                piwik_action_name = '';
+                piwik_idsite = 2;
+                piwik_url = pkBaseURL + "piwik.php";
+                piwik_log(piwik_action_name, piwik_idsite, piwik_url);
+                </script>
+                <object><noscript><p><img src="http://sourceforge.net/apps/piwik/jpbc/piwik.php?idsite=2" alt="piwik"/></p></noscript></object>
+                <!-- End Piwik Tag -->
+          </div>
+                       
+  
+
+  
+    
+            
+  
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div style="clear:right;visibility:hidden"></div>
+      <div id="contentBox">
+        
+    
+        <div class="section">
+<h2>Functional Encryption for Regular Languages<a name="Functional_Encryption_for_Regular_Languages"></a></h2>
+            
+<div class="section">
+<h3>Authors<a name="Authors"></a></h3>
+                Brent Waters
+            </div>
+
+            
+<div class="section">
+<h3>Abstract<a name="Abstract"></a></h3>
+                We provide a functional encryption system that supports functionality for regular languages. In our
+                system a secret key is associated with a Deterministic Finite Automata (DFA) M. A ciphertext CT encrypts
+                a message m and is associated with an arbitrary length string w. A user is able to decrypt the
+                ciphertext CT if and only if the DFA M associated with his private key accepts the string w.
+                Compared with other known functional encryption systems, this is the first system where the
+                functionality is capable of recognizing an unbounded language. For example, in (Key-Policy)
+                Attribute-Based Encryption (ABE) a private key SK is associated with a single boolean formula &#x3c6; which
+                operates over a fixed number of boolean variables from the ciphertext. In contrast, in our system a DFA
+                M will meaningfully operate over an arbitrary length input w.
+                We propose a system that utilizes bilinear groups. Our solution is a &#x201c;public index&#x201d; system, where the
+                message m is hidden, but the string w is not. We prove security in the selective model under a variant
+                of the decision l-Bilinear Diffie-Hellman Exponent (BDHE) assumption that we call the decision
+                l-Expanded BDHE problem.
+            </div>
+
+            
+<div class="section">
+<h3>URL<a name="URL"></a></h3>
+                <a class="externalLink" href="http://eprint.iacr.org/2012/384.pdf">
+                    http://eprint.iacr.org/2012/384.pdf
+                </a>
+            </div>
+        </div>
+
+        
+<div class="section">
+<h2>Usage<a name="Usage"></a></h2>
+
+<div>
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.rl.w12;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.dfa.DFA;
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.dfa.DefaultDFA;
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.rl.w12.engines.RLW12KEMEngine;
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.rl.w12.generators.RLW12KeyPairGenerator;
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.rl.w12.generators.RLW12ParametersGenerator;
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.rl.w12.generators.RLW12SecretKeyGenerator;
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.rl.w12.params.*;
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.kem.KeyEncapsulationMechanism;
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+<a name="l13"><span class="ln">13   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CipherParameters;
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.InvalidCipherTextException;
+<a name="l15"><span class="ln">15   </span></a>
+<a name="l16"><span class="ln">16   </span></a></span><span class="s0">import </span><span class="s1">java.security.SecureRandom;
+<a name="l17"><span class="ln">17   </span></a></span><span class="s0">import </span><span class="s1">java.util.Arrays;
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.*;
+<a name="l20"><span class="ln">20   </span></a>
+<a name="l21"><span class="ln">21   </span></a></span><span class="s2">/**
+<a name="l22"><span class="ln">22   </span></a> * </span><span class="s3">@author </span><span class="s2">Angelo De Caro (jpbclib@gmail.com)
+<a name="l23"><span class="ln">23   </span></a> */</span><span class="s1">
+<a name="l24"><span class="ln">24   </span></a></span><span class="s0">public class </span><span class="s1">RLW12KEM {
+<a name="l25"><span class="ln">25   </span></a>
+<a name="l26"><span class="ln">26   </span></a>
+<a name="l27"><span class="ln">27   </span></a>    </span><span class="s0">public </span><span class="s1">RLW12KEM() {
+<a name="l28"><span class="ln">28   </span></a>    }
+<a name="l29"><span class="ln">29   </span></a>
+<a name="l30"><span class="ln">30   </span></a>
+<a name="l31"><span class="ln">31   </span></a>    </span><span class="s0">public </span><span class="s1">AsymmetricCipherKeyPair setup(DFA.Alphabet alphabet) {
+<a name="l32"><span class="ln">32   </span></a>        RLW12KeyPairGenerator setup = </span><span class="s0">new </span><span class="s1">RLW12KeyPairGenerator();
+<a name="l33"><span class="ln">33   </span></a>        setup.init(</span><span class="s0">new </span><span class="s1">RLW12KeyPairGenerationParameters(
+<a name="l34"><span class="ln">34   </span></a>                </span><span class="s0">new </span><span class="s1">SecureRandom(),
+<a name="l35"><span class="ln">35   </span></a>                </span><span class="s0">new </span><span class="s1">RLW12ParametersGenerator().init(
+<a name="l36"><span class="ln">36   </span></a>                        PairingFactory.getPairingParameters(</span><span class="s4">&quot;params/curves/a.properties&quot;</span><span class="s1">),
+<a name="l37"><span class="ln">37   </span></a>                        alphabet).generateParameters()
+<a name="l38"><span class="ln">38   </span></a>        ));
+<a name="l39"><span class="ln">39   </span></a>        </span><span class="s0">return </span><span class="s1">setup.generateKeyPair();
+<a name="l40"><span class="ln">40   </span></a>    }
+<a name="l41"><span class="ln">41   </span></a>
+<a name="l42"><span class="ln">42   </span></a>    </span><span class="s0">public byte</span><span class="s1">[][] encaps(CipherParameters publicKey, String w) {
+<a name="l43"><span class="ln">43   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l44"><span class="ln">44   </span></a>            KeyEncapsulationMechanism kem = </span><span class="s0">new </span><span class="s1">RLW12KEMEngine();
+<a name="l45"><span class="ln">45   </span></a>            kem.init(</span><span class="s0">true</span><span class="s1">, </span><span class="s0">new </span><span class="s1">RLW12EncryptionParameters((RLW12PublicKeyParameters) publicKey, w));
+<a name="l46"><span class="ln">46   </span></a>
+<a name="l47"><span class="ln">47   </span></a>            </span><span class="s0">byte</span><span class="s1">[] ciphertext = kem.process();
+<a name="l48"><span class="ln">48   </span></a>
+<a name="l49"><span class="ln">49   </span></a>            assertNotNull(ciphertext);
+<a name="l50"><span class="ln">50   </span></a>            assertNotSame(</span><span class="s5">0</span><span class="s1">, ciphertext.length);
+<a name="l51"><span class="ln">51   </span></a>
+<a name="l52"><span class="ln">52   </span></a>            </span><span class="s0">byte</span><span class="s1">[] key = Arrays.copyOfRange(ciphertext, </span><span class="s5">0</span><span class="s1">, kem.getKeyBlockSize());
+<a name="l53"><span class="ln">53   </span></a>            </span><span class="s0">byte</span><span class="s1">[] ct = Arrays.copyOfRange(ciphertext, kem.getKeyBlockSize(), ciphertext.length);
+<a name="l54"><span class="ln">54   </span></a>
+<a name="l55"><span class="ln">55   </span></a>            </span><span class="s0">return new byte</span><span class="s1">[][]{key, ct};
+<a name="l56"><span class="ln">56   </span></a>        } </span><span class="s0">catch </span><span class="s1">(InvalidCipherTextException e) {
+<a name="l57"><span class="ln">57   </span></a>            e.printStackTrace();
+<a name="l58"><span class="ln">58   </span></a>            fail(e.getMessage());
+<a name="l59"><span class="ln">59   </span></a>        }
+<a name="l60"><span class="ln">60   </span></a>        </span><span class="s0">return null</span><span class="s1">;
+<a name="l61"><span class="ln">61   </span></a>    }
+<a name="l62"><span class="ln">62   </span></a>
+<a name="l63"><span class="ln">63   </span></a>    </span><span class="s0">public </span><span class="s1">CipherParameters keyGen(CipherParameters publicKey, CipherParameters masterSecretKey, DFA dfa) {
+<a name="l64"><span class="ln">64   </span></a>        RLW12SecretKeyGenerator keyGen = </span><span class="s0">new </span><span class="s1">RLW12SecretKeyGenerator();
+<a name="l65"><span class="ln">65   </span></a>        keyGen.init(</span><span class="s0">new </span><span class="s1">RLW12SecretKeyGenerationParameters(
+<a name="l66"><span class="ln">66   </span></a>                (RLW12PublicKeyParameters) publicKey,
+<a name="l67"><span class="ln">67   </span></a>                (RLW12MasterSecretKeyParameters) masterSecretKey,
+<a name="l68"><span class="ln">68   </span></a>                dfa
+<a name="l69"><span class="ln">69   </span></a>        ));
+<a name="l70"><span class="ln">70   </span></a>
+<a name="l71"><span class="ln">71   </span></a>        </span><span class="s0">return </span><span class="s1">keyGen.generateKey();
+<a name="l72"><span class="ln">72   </span></a>    }
+<a name="l73"><span class="ln">73   </span></a>
+<a name="l74"><span class="ln">74   </span></a>    </span><span class="s0">public byte</span><span class="s1">[] decaps(CipherParameters secretKey, </span><span class="s0">byte</span><span class="s1">[] ciphertext) {
+<a name="l75"><span class="ln">75   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l76"><span class="ln">76   </span></a>            KeyEncapsulationMechanism kem = </span><span class="s0">new </span><span class="s1">RLW12KEMEngine();
+<a name="l77"><span class="ln">77   </span></a>
+<a name="l78"><span class="ln">78   </span></a>            kem.init(</span><span class="s0">false</span><span class="s1">, secretKey);
+<a name="l79"><span class="ln">79   </span></a>            </span><span class="s0">byte</span><span class="s1">[] key = kem.processBlock(ciphertext);
+<a name="l80"><span class="ln">80   </span></a>
+<a name="l81"><span class="ln">81   </span></a>            assertNotNull(key);
+<a name="l82"><span class="ln">82   </span></a>            assertNotSame(</span><span class="s5">0</span><span class="s1">, key.length);
+<a name="l83"><span class="ln">83   </span></a>
+<a name="l84"><span class="ln">84   </span></a>            </span><span class="s0">return </span><span class="s1">key;
+<a name="l85"><span class="ln">85   </span></a>        } </span><span class="s0">catch </span><span class="s1">(InvalidCipherTextException e) {
+<a name="l86"><span class="ln">86   </span></a>            e.printStackTrace();
+<a name="l87"><span class="ln">87   </span></a>            fail(e.getMessage());
+<a name="l88"><span class="ln">88   </span></a>        }
+<a name="l89"><span class="ln">89   </span></a>
+<a name="l90"><span class="ln">90   </span></a>        </span><span class="s0">return null</span><span class="s1">;
+<a name="l91"><span class="ln">91   </span></a>    }
+<a name="l92"><span class="ln">92   </span></a>
+<a name="l93"><span class="ln">93   </span></a>
+<a name="l94"><span class="ln">94   </span></a>    </span><span class="s0">public static void </span><span class="s1">main(String[] args) {
+<a name="l95"><span class="ln">95   </span></a>        DefaultDFA dfa = </span><span class="s0">new </span><span class="s1">DefaultDFA(</span><span class="s5">2</span><span class="s1">);
+<a name="l96"><span class="ln">96   </span></a>        dfa.addFinalState(</span><span class="s5">0</span><span class="s1">);
+<a name="l97"><span class="ln">97   </span></a>        dfa.addTransition(</span><span class="s5">0</span><span class="s1">, </span><span class="s4">'0'</span><span class="s1">, </span><span class="s5">1</span><span class="s1">);
+<a name="l98"><span class="ln">98   </span></a>        dfa.addTransition(</span><span class="s5">0</span><span class="s1">, </span><span class="s4">'1'</span><span class="s1">, </span><span class="s5">0</span><span class="s1">);
+<a name="l99"><span class="ln">99   </span></a>        dfa.addTransition(</span><span class="s5">1</span><span class="s1">, </span><span class="s4">'0'</span><span class="s1">, </span><span class="s5">0</span><span class="s1">);
+<a name="l100"><span class="ln">100  </span></a>        dfa.addTransition(</span><span class="s5">1</span><span class="s1">, </span><span class="s4">'1'</span><span class="s1">, </span><span class="s5">1</span><span class="s1">);
+<a name="l101"><span class="ln">101  </span></a>
+<a name="l102"><span class="ln">102  </span></a>        DefaultDFA.DefaultAlphabet alphabet = </span><span class="s0">new </span><span class="s1">DefaultDFA.DefaultAlphabet();
+<a name="l103"><span class="ln">103  </span></a>        alphabet.addLetter(</span><span class="s4">'0'</span><span class="s1">, </span><span class="s4">'1'</span><span class="s1">);
+<a name="l104"><span class="ln">104  </span></a>
+<a name="l105"><span class="ln">105  </span></a>        RLW12KEM rlw12KEM = </span><span class="s0">new </span><span class="s1">RLW12KEM();
+<a name="l106"><span class="ln">106  </span></a>
+<a name="l107"><span class="ln">107  </span></a>        </span><span class="s2">// setup</span><span class="s1">
+<a name="l108"><span class="ln">108  </span></a>        AsymmetricCipherKeyPair keyPair = rlw12KEM.setup(alphabet);
+<a name="l109"><span class="ln">109  </span></a>
+<a name="l110"><span class="ln">110  </span></a>        </span><span class="s2">// keygen</span><span class="s1">
+<a name="l111"><span class="ln">111  </span></a>        CipherParameters secretKey = rlw12KEM.keyGen(keyPair.getPublic(), keyPair.getPrivate(), dfa);
+<a name="l112"><span class="ln">112  </span></a>
+<a name="l113"><span class="ln">113  </span></a>        </span><span class="s2">// Encaps/Decaps for accepting word</span><span class="s1">
+<a name="l114"><span class="ln">114  </span></a>        String w = </span><span class="s4">&quot;00111100&quot;</span><span class="s1">;
+<a name="l115"><span class="ln">115  </span></a>        assertTrue(dfa.accept(w));
+<a name="l116"><span class="ln">116  </span></a>        </span><span class="s0">byte</span><span class="s1">[][] ct = rlw12KEM.encaps(keyPair.getPublic(), w);
+<a name="l117"><span class="ln">117  </span></a>        assertEquals(</span><span class="s0">true</span><span class="s1">, Arrays.equals(ct[</span><span class="s5">0</span><span class="s1">], rlw12KEM.decaps(secretKey, ct[</span><span class="s5">1</span><span class="s1">])));
+<a name="l118"><span class="ln">118  </span></a>
+<a name="l119"><span class="ln">119  </span></a>        </span><span class="s2">// Encaps/Decaps for non-accepting word</span><span class="s1">
+<a name="l120"><span class="ln">120  </span></a>        w = </span><span class="s4">&quot;01111100&quot;</span><span class="s1">;
+<a name="l121"><span class="ln">121  </span></a>        assertFalse(dfa.accept(w));
+<a name="l122"><span class="ln">122  </span></a>        ct = rlw12KEM.encaps(keyPair.getPublic(), </span><span class="s4">&quot;01111100&quot;</span><span class="s1">);
+<a name="l123"><span class="ln">123  </span></a>        assertEquals(</span><span class="s0">false</span><span class="s1">, Arrays.equals(ct[</span><span class="s5">0</span><span class="s1">], rlw12KEM.decaps(secretKey, ct[</span><span class="s5">1</span><span class="s1">])));
+<a name="l124"><span class="ln">124  </span></a>    }
+<a name="l125"><span class="ln">125  </span></a>}
+<a name="l126"><span class="ln">126  </span></a>
+<a name="l127"><span class="ln">127  </span></a></span></pre></div>
+        </div>
+
+    
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="license">
+          <a rel="license" href="http://creativecommons.org/licenses/by-nc/2.5/">
+              <img
+                  alt="Creative Commons License" src="http://creativecommons.org/images/public/somerights20.gif"
+                  id="license_image"/>
+          </a>
+          Except where otherwise noted, content on this site is
+          licensed under a
+          <a style="border-bottom-style: groove;" rel="license" href="http://creativecommons.org/licenses/by/2.5/" class="subfoot">
+              Creative Commons Attribution 2.5 License
+          </a>
+          &#169;  
+          2015
+    
+          
+  
+
+  
+    
+            
+  
+        </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
