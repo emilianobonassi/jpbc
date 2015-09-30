@@ -1,6 +1,6 @@
-Forked repository for (jPBC)[http://gas.dia.unisa.it/projects/jpbc/].
+Forked repository for [jPBC](http://gas.dia.unisa.it/projects/jpbc/).
 
-After (Codehaus termination) [www.codehaus.org] Maven dependencies didn't work anymore.
+After [Codehaus termination](www.codehaus.org) Maven dependencies didn't work anymore.
 Now, you can use the fabulous JitPack.io in two steps.
 
 **Step 1.** Add the JitPack repository to your build file
