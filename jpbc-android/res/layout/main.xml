@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout
+        android:id="@+id/widget38"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:keepScreenOn="true"
+        >
+    <EditText
+            android:id="@+id/iterations"
+            android:layout_width="109px"
+            android:layout_height="36px"
+            android:text="10"
+            android:textSize="18sp"
+            android:layout_x="106px"
+            android:layout_y="87px"
+            >
+    </EditText>
+    <ProgressBar
+            android:id="@+id/progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:indeterminate="false"
+            android:layout_x="134px"
+            android:layout_y="207px"
+            >
+    </ProgressBar>
+    <TextView
+            android:id="@+id/widget33"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="# Iteration"
+            android:layout_x="34px"
+            android:layout_y="91px"
+            >
+    </TextView>
+    <Button
+            android:id="@+id/benchmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Benchmark"
+            android:layout_x="226px"
+            android:layout_y="84px"
+            >
+    </Button>
+    <TextView
+            android:id="@+id/status"
+            android:layout_width="173px"
+            android:layout_height="22px"
+            android:gravity="center"
+            android:layout_x="69px"
+            android:layout_y="264px"
+            >
+    </TextView>
+</AbsoluteLayout>

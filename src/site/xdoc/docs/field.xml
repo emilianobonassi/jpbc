@@ -1,0 +1,60 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Docs -  Field Functions</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Algebraic Structures">
+
+            <p>
+                The
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Field.html">
+                    <code>Field</code>
+                </a>
+                interface represents a generic algebraic structure.
+                Instances of this interface can be obtained from the
+                <code>Pairing</code>
+                interface
+                as shown
+                <a href="./pairing.html#accessing">here</a>.
+            </p>
+
+            <a name="initializing"/>
+            <subsection name="Initializing Elements">
+                <p>
+                    The following methods can be used
+                    to initialize a new
+                    <code>Element</code>.
+                </p>
+
+                <source>/* Create a new uninitialized element. */
+Element element = field.newElement();
+                </source>
+
+                <source>/* Create a new element whose value is zero. */
+Element element = field.newZeroElement();
+                </source>
+
+                <source>/* Create a new element whose value is one. */
+Element element = field.newOneElement();
+                </source>
+
+                <source>/* Create a new random element. */
+Element element = field.newRandomElement();
+                </source>
+
+                <source>/* Create a new element with a specified value. */
+Element element = field.newElement(5);
+                </source>
+
+                <source>/* Create a new element with a specified value. */
+Element element = field.newElement(new BigInteger("5390843849083028490328"));
+                </source>
+            </subsection>
+        </section>
+    </body>
+</document>

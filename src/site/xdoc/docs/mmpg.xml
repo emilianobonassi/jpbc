@@ -1,0 +1,92 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Docs - Multilinear Maps</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Multilinear Pairing Parameters Generators">
+
+            <p>
+            We currently do not have candidates for multilinear
+            maps between groups with cryptographically hard problems. However, Garg,
+            Gentry, and Halevi (henceforth GGH) suggest a concrete candidate for an
+            <span class="em">approximation</span> of multilinear maps, named <span class="em">graded encoding systems</span>.
+            With the GGH candidate, group elements have a randomized (and thus non-unique) representation
+            dubbed <span class="em">encoding</span>. While it is possible to extract a unique
+            <span class="em">canonical bistring</span>, it is not possible to perform further computations
+            with this extracted bitstring. An encoding can be re-randomized (e.g., to hide
+            the sequence of operations that were performed), but only at the cost of introducing an
+            artificial <span class="em">noice</span> term in the encoding. Further operation
+            on this group element cause the noise to grow; once this
+            noise grows beyond a certain bound, encodings can no longer be worked with.
+            </p>
+
+
+            <a name="ctl13"/>
+            <subsection name="CTL13">
+                <p>
+                JPBC provides an implementation of <span class="em">Multilinear Maps</span>
+                based on the paper
+                <a name="http://eprint.iacr.org/2013/183.pdf"><span class="em">Practical Multilinear Maps over the Integers</span></a>
+                by <span class="em">Coron, Lepoint, and Tibouchi</span>.
+                They describe a different construction from the GGH one that works over the integers
+                instead of ideal lattices.
+                </p>
+                <p>
+                    In the CTL construction there are two sets of parameters:
+                </p>
+                <p>
+                    <span class="em">The System Parameters</span>:
+                    They govern the security and the correctness of the multilinear map.
+                    They must be set carefully to satisfy the constraints described by Coron et al
+                    in their paper in Section 3.1.
+                    JPBC provides a set of predefined system parameters that
+                    can be found in the <code>params/mm/ctl13</code> folder
+                    of the distro package.
+                </p>
+                <p>
+                    <span class="em">The Public Parameters</span>:
+                    They describe a specific instance of a
+                    multilinear map defined by the given system parameters.
+                </p>
+                <p>
+                    JPBC provides single and multithreaded generators
+                    that take in input the system parameters and generate the public parameters
+                    which are then saved in a file.
+                    <br/>
+                    Here is the code to use them.
+                </p>
+
+                <source>import it.unisa.dia.gas.plaf.jpbc.mm.clt13.generators.CTL13MMMultiThreadPublicParameterGenerator;
+import it.unisa.dia.gas.plaf.jpbc.mm.clt13.generators.CTL13MMPublicParameterGenerator;
+import it.unisa.dia.gas.plaf.jpbc.mm.clt13.parameters.CTL13MMSystemParameters;
+
+// Single thread pairing generator ...
+ParametersGenerator pg = new CTL13MMPublicParameterGenerator(CTL13MMSystemParameters.TOY);
+
+// Multithreaded pairing generator ...
+ParametersGenerator mtPg = new CTL13MMMultiThreadPublicParameterGenerator(CTL13MMSystemParameters.TOY);
+                </source>
+
+                <p>
+                    Notice that, the multithreaded generator does not have
+                    any special memory requirements. In fact, the generator uses
+                    memory mapped files to store the public parameters.
+                    Of course, the less the memory the system has
+                    the slower the generation process is.
+                </p>
+                <p>
+                    On the other hand, the single thread generator
+                    keeps all the public parameters in memory and
+                    thus, depending on the system parameters,
+                    huge quantity of memory could be required.
+                </p>
+            </subsection>
+
+        </section>
+    </body>
+</document>

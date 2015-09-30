@@ -1,0 +1,75 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>JPBC : Schemes</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Schemes">
+
+            <p>
+                JPBC provides the implementation of the
+                following cryptosystems in the context of the
+                <a href="http://www.bouncycastle.org/java.html">Bouncy Castle</a>
+                framework.
+            </p>
+
+            <a name="fe"/>
+            <subsection name="Functional Encryption Schemes">
+                <ol>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./abe_gghsw13.html">[GGHSW'13]</a>
+                        </font>: S. Garg and C. Gentry and S. Halevi and A. Sahai and B. Waters,
+                        Attribute-Based Encryption for Circuits from Multilinear Maps
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./rl_w12.html">[W'12]</a>
+                        </font>: B. Waters, Functional Encryption for Regular Languages
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./uhibe_lw11.html">[LW'11]</a>
+                        </font>: A. Lewko and B. Waters, Unbounded HIBE and Attribute-Based Encryption.
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./ip_lostw10.html">[LOSTW'10]</a>
+                        </font>: A. Lewko and T. Okamoto and A. Sahai and K. Takashima and B. Waters, Fully Secure Functional Encryption: Attribute-Based Encryption and (Hierarchical) Inner Product Encryption.
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./ahibe_dip10.html">[DIP'10]</a>
+                        </font>: A. De Caro and V. Iovino and G. Persiano, Fully Secure Anonymous HIBE and Secret-Key Anonymous IBE with Short Ciphertexts.
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./hve_ip08.html">[IP'08]</a>
+                        </font>: V. Iovino and G. Persiano, Hidden-Vector Encryption with Groups of Prime Order.
+                    </li>
+                </ol>
+            </subsection>
+
+            <a name="ss"/>
+            <subsection name="Signature Schemes">
+                <ol>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./ibs_ps06.html">[IBS'06]</a>
+                        </font>: K. G. Paterson and J. C. N. Schuldt, Efficient Identity-based Signatures Secure in the Standard Model.
+                    </li>
+                    <li>
+                        <font style="font-weight: bold;color:red">
+                            <a href="./ss_bls01.html">[BLS'01]</a>
+                        </font>: D. Boneh, B. Lynn, and H. Shacham., Short signatures from the Weil pairing.
+                    </li>
+                </ol>
+            </subsection>
+
+        </section>
+    </body>
+</document>

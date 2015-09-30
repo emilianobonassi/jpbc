@@ -1,0 +1,108 @@
+<assembly xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.1 http://maven.apache.org/xsd/assembly-1.1.1.xsd">
+
+    <!--<id>distro</id>-->
+
+    <formats>
+        <format>dir</format>
+        <format>zip</format>
+        <format>tar.gz</format>
+    </formats>
+
+    <includeBaseDirectory>false</includeBaseDirectory>
+
+    <moduleSets>
+        <moduleSet>
+            <includes>
+                <include>it.unisa.dia.gas:jpbc-pbc</include>
+                <include>it.unisa.dia.gas:jpbc-crypto</include>
+                <include>it.unisa.dia.gas:jpbc-benchmark</include>
+            </includes>
+            <binaries>
+                <outputDirectory>jars</outputDirectory>
+                <includeDependencies>true</includeDependencies>
+                <unpack>false</unpack>
+            </binaries>
+        </moduleSet>
+
+        <moduleSet>
+            <includes>
+                <include>it.unisa.dia.gas:jpbc-android</include>
+                <include>it.unisa.dia.gas:jpbc-benchmark</include>
+                <include>it.unisa.dia.gas:jpbc-api</include>
+                <include>it.unisa.dia.gas:jpbc-plaf</include>
+                <include>it.unisa.dia.gas:jpbc-mm</include>
+                <include>it.unisa.dia.gas:jpbc-pbc</include>
+                <include>it.unisa.dia.gas:jpbc-crypto</include>
+                <include>it.unisa.dia.gas:jpbc-site-skin</include>
+                <include>it.unisa.dia.gas:jpbc-test</include>
+            </includes>
+            <sources>
+                <fileSets>
+                    <fileSet>
+                        <outputDirectory>src</outputDirectory>
+                        <excludes>
+                            <exclude>target/**</exclude>
+                        </excludes>
+                        <directory>src</directory>
+                    </fileSet>
+                    <fileSet>
+                        <outputDirectory>.</outputDirectory>
+                        <includes>
+                            <include>pom.xml</include>
+                            <include>CMakeLists.txt</include>
+                            <include>Find*.cmake</include>
+                        </includes>
+                    </fileSet>
+                </fileSets>
+            </sources>
+        </moduleSet>
+    </moduleSets>
+
+    <fileSets>
+        <fileSet>
+            <directory>src</directory>
+            <outputDirectory>src</outputDirectory>
+            <includes/>
+        </fileSet>
+
+        <fileSet>
+            <directory>params</directory>
+            <outputDirectory>params</outputDirectory>
+            <includes/>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-test/target</directory>
+            <outputDirectory>jars/test</outputDirectory>
+            <includes>
+                <include>*tests.jar</include>
+            </includes>
+        </fileSet>
+
+        <fileSet>
+            <directory>jpbc-android</directory>
+            <outputDirectory>jpbc-android</outputDirectory>
+        </fileSet>
+
+        <fileSet>
+            <directory>license</directory>
+            <outputDirectory>license</outputDirectory>
+            <includes/>
+        </fileSet>
+    </fileSets>
+
+
+    <files>
+        <file>
+            <source>jpbc.xml</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+        <file>
+            <source>pom.xml</source>
+            <outputDirectory>.</outputDirectory>
+        </file>
+    </files>
+
+</assembly>

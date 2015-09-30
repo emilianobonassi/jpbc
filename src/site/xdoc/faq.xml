@@ -1,0 +1,134 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : FAQ</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="FAQ">
+            <ol type="1">
+                <li>
+                    <a href="#htujpbc">How to use JPBC?</a>
+                </li>
+                <li>
+                    <a href="#witmep">Which is the main entry point?</a>
+                </li>
+                <li>
+                    <a href="#hwigaiotpi">How do I get an instance of the Pairing interface?</a>
+                </li>
+                <li>
+                    <a href="#wiae">What an Element is?</a>
+                </li>
+            </ol>
+        </section>
+
+
+        <a name="htujpbc"/>
+        <subsection name="How to use JPBC?">
+            <p>
+                To use JPBC, add to your classpath the following jars:
+                        <span class="em"><code>jpbc_2.0.0-api.jar</code></span>
+                        and
+                        <span class="em"><code>jpbc_2.0.0-plaf.jar</code></span>.
+            </p>
+            <p>
+                To use the PBC Wrapper, a shared C library must be compiled
+                and installed properly as shown
+                <a href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                Then, to use the wrapper, include the following jars:
+                    <span class="em"><code>jpbc_2.0.0-pbc.jar</code></span>
+                    and
+                    <span class="em"><code>jna-3.1.0.jar</code></span>.
+            </p>
+            <p>
+                To use the
+                <a href="docs/pairing.html">Multilinear Maps</a>,
+                include the following jar:
+                    <span class="em"><code>jpbc_2.0.0-mm.jar</code></span>.
+            </p>
+            <p>
+                To use the
+                <a href="schemes/schemes.html">cryptosystems</a>
+                provided by JPBC
+                include the following jars:
+                    <span class="em"><code>jpbc-crypto-2.0.0.jar</code></span>
+                    and
+                    <span class="em"><code>bcprov-jdk16-1.46</code></span>.
+            </p>
+
+        </subsection>
+
+        <a name="witmep"/>
+        <subsection name="Which is the main entry point?">
+            <p>
+                The main entry point is the
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                interface that provides access to the algebraic structures underlying the pairing computation
+                and the pairing function.
+            </p>
+        </subsection>
+
+        <a name="hwigaiotpi"/>
+        <subsection name="How do I get an instance of the Pairing interface?">
+            <p>
+                The easiest way to obtain an instance of the
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                interface is by using the factory provided by JPBC.
+                The factory takes in input the pairing parameters
+                and instantiates the appropriate classes.
+                To generate the pairing parameters look at this
+                <a href="./docs/pg.html">page</a>.
+            </p>
+
+            <p>
+                Let's now see how to use the factory.
+            </p>
+
+            <p>
+                Assume that the pairing parameters are stored in a file
+                called <code>params.properties</code> which is available in the working director.
+                Then, the following code can be used to instantiate the Pairing interface
+                with parameters loaded from <code>params.properties</code>.
+            </p>
+            <source>import it.unisa.dia.gas.jpbc.*;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+
+Pairing pairing = PairingFactory.getPairing("params.properties");
+            </source>
+            <p>
+                For bilinear maps only,
+                to use the PBC wrapper and gain in performance,
+                the <code>usePBCWhenPossible</code> property of the pairing
+                factory must be set.
+            </p>
+            <source>PairingFactory.getInstance().setUsePBCWhenPossible(true);</source>
+            <p>
+                Notice that, to effectively use the wrapper
+                the <code>usePBCWhenPossible</code> property must be set before invoking
+                the <code>getPairing</code> method.
+            </p>
+            <p>
+                Moreover, if PBC and the JPBC wrapper are not installed properly then
+                the factory will resort to the JPBC pairing implementation.
+                <br/>
+                The instructions to properly setup the PBC wrapper are <a href="./docs/pbcwrapper.html">here</a>.
+            </p>
+        </subsection>
+
+        <a name="wiae"/>
+        <subsection name="What an Element is?">
+            <p>
+                The <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Element.html">
+                    <code>Element</code>
+                </a>
+                interface represents
+                elements belonging to an algebraic structure (groups, rings and fields).
+                This objects are mutable meaning that the internal value can be modified
+                by invoking appropriate methods.
+            </p>
+        </subsection>
+    </body>
+</document>

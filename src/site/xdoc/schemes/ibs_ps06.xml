@@ -1,0 +1,135 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Schemes - Efficient Identity-based Signatures Secure in the
+            Standard Model
+        </title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Efficient Identity-based Signatures Secure in the Standard Model">
+            <subsection name="Authors">
+                Kenneth G. Paterson and Jacob C. N. Schuldt
+            </subsection>
+            <subsection name="Abstract">
+                The only known construction of identity-based signatures that can be proven secure in the standard model
+                is based on the approach of attaching certificates to non-identity-based signatures. This folklore
+                construction method leads to schemes that are somewhat inefficient and leaves open the problem of
+                finding more efficient direct constructions. We present the first such construction. Our scheme is
+                obtained from a modification of Waters’ recently proposed identity-based encryption scheme. It is
+                computationally efficient and the signatures are short. The scheme’s security is proven in the standard
+                model and rests on the hardness of the computational Diffie-Hellman problem in groups equipped with a
+                pairing.
+            </subsection>
+            <subsection name="URL">
+                <a href="http://eprint.iacr.org/2009/380.pdf">
+                    http://eprint.iacr.org/2009/380.pdf
+                </a>
+            </subsection>
+        </section>
+
+        <section name="Usage">
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.ps06;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.ps06.engines.PS06Signer;
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.ps06.generators.PS06ParametersGenerator;
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.ps06.generators.PS06SecretKeyGenerator;
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.ps06.generators.PS06SetupGenerator;
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.ps06.params.*;
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CipherParameters;
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CryptoException;
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.digests.SHA256Digest;
+<a name="l13"><span class="ln">13   </span></a>
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.*;
+<a name="l15"><span class="ln">15   </span></a>
+<a name="l16"><span class="ln">16   </span></a></span><span class="s2">/**
+<a name="l17"><span class="ln">17   </span></a> * </span><span class="s3">@author </span><span class="s2">Angelo De Caro (jpbclib@gmail.com)
+<a name="l18"><span class="ln">18   </span></a> */</span><span class="s1">
+<a name="l19"><span class="ln">19   </span></a></span><span class="s0">public class </span><span class="s1">PS06 {
+<a name="l20"><span class="ln">20   </span></a>
+<a name="l21"><span class="ln">21   </span></a>    </span><span class="s0">public </span><span class="s1">PS06() {
+<a name="l22"><span class="ln">22   </span></a>    }
+<a name="l23"><span class="ln">23   </span></a>
+<a name="l24"><span class="ln">24   </span></a>
+<a name="l25"><span class="ln">25   </span></a>    </span><span class="s0">public </span><span class="s1">PS06Parameters createParameters(</span><span class="s0">int </span><span class="s1">nU, </span><span class="s0">int </span><span class="s1">nM) {
+<a name="l26"><span class="ln">26   </span></a>        </span><span class="s2">// Generate Public PairingParameters</span><span class="s1">
+<a name="l27"><span class="ln">27   </span></a>        </span><span class="s0">return new </span><span class="s1">PS06ParametersGenerator().init(
+<a name="l28"><span class="ln">28   </span></a>                PairingFactory.getPairingParameters(</span><span class="s4">&quot;params/curves/a.properties&quot;</span><span class="s1">),
+<a name="l29"><span class="ln">29   </span></a>                nU, nM).generateParameters();
+<a name="l30"><span class="ln">30   </span></a>    }
+<a name="l31"><span class="ln">31   </span></a>
+<a name="l32"><span class="ln">32   </span></a>    </span><span class="s0">public </span><span class="s1">AsymmetricCipherKeyPair setup(PS06Parameters parameters) {
+<a name="l33"><span class="ln">33   </span></a>        PS06SetupGenerator setup = </span><span class="s0">new </span><span class="s1">PS06SetupGenerator();
+<a name="l34"><span class="ln">34   </span></a>        setup.init(</span><span class="s0">new </span><span class="s1">PS06SetupGenerationParameters(</span><span class="s0">null</span><span class="s1">, parameters));
+<a name="l35"><span class="ln">35   </span></a>
+<a name="l36"><span class="ln">36   </span></a>        </span><span class="s0">return </span><span class="s1">setup.generateKeyPair();
+<a name="l37"><span class="ln">37   </span></a>    }
+<a name="l38"><span class="ln">38   </span></a>
+<a name="l39"><span class="ln">39   </span></a>
+<a name="l40"><span class="ln">40   </span></a>    </span><span class="s0">public </span><span class="s1">CipherParameters extract(AsymmetricCipherKeyPair keyPair, String identity) {
+<a name="l41"><span class="ln">41   </span></a>        PS06SecretKeyGenerator extract = </span><span class="s0">new </span><span class="s1">PS06SecretKeyGenerator();
+<a name="l42"><span class="ln">42   </span></a>        extract.init(</span><span class="s0">new </span><span class="s1">PS06SecretKeyGenerationParameters(keyPair, identity));
+<a name="l43"><span class="ln">43   </span></a>
+<a name="l44"><span class="ln">44   </span></a>        </span><span class="s0">return </span><span class="s1">extract.generateKey();
+<a name="l45"><span class="ln">45   </span></a>    }
+<a name="l46"><span class="ln">46   </span></a>
+<a name="l47"><span class="ln">47   </span></a>    </span><span class="s0">public byte</span><span class="s1">[] sign(String message, CipherParameters secretKey) {
+<a name="l48"><span class="ln">48   </span></a>        </span><span class="s0">byte</span><span class="s1">[] bytes = message.getBytes();
+<a name="l49"><span class="ln">49   </span></a>
+<a name="l50"><span class="ln">50   </span></a>        PS06Signer signer = </span><span class="s0">new </span><span class="s1">PS06Signer(</span><span class="s0">new </span><span class="s1">SHA256Digest());
+<a name="l51"><span class="ln">51   </span></a>        signer.init(</span><span class="s0">true</span><span class="s1">, </span><span class="s0">new </span><span class="s1">PS06SignParameters((PS06SecretKeyParameters) secretKey));
+<a name="l52"><span class="ln">52   </span></a>        signer.update(bytes, </span><span class="s5">0</span><span class="s1">, bytes.length);
+<a name="l53"><span class="ln">53   </span></a>
+<a name="l54"><span class="ln">54   </span></a>        </span><span class="s0">byte</span><span class="s1">[] signature = </span><span class="s0">null</span><span class="s1">;
+<a name="l55"><span class="ln">55   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l56"><span class="ln">56   </span></a>            signature = signer.generateSignature();
+<a name="l57"><span class="ln">57   </span></a>        } </span><span class="s0">catch </span><span class="s1">(CryptoException e) {
+<a name="l58"><span class="ln">58   </span></a>            fail(e.getMessage());
+<a name="l59"><span class="ln">59   </span></a>        }
+<a name="l60"><span class="ln">60   </span></a>
+<a name="l61"><span class="ln">61   </span></a>        </span><span class="s0">return </span><span class="s1">signature;
+<a name="l62"><span class="ln">62   </span></a>    }
+<a name="l63"><span class="ln">63   </span></a>
+<a name="l64"><span class="ln">64   </span></a>    </span><span class="s0">public boolean </span><span class="s1">verify(CipherParameters publicKey, String message, String identity, </span><span class="s0">byte</span><span class="s1">[] signature) {
+<a name="l65"><span class="ln">65   </span></a>        </span><span class="s0">byte</span><span class="s1">[] bytes = message.getBytes();
+<a name="l66"><span class="ln">66   </span></a>
+<a name="l67"><span class="ln">67   </span></a>        PS06Signer signer = </span><span class="s0">new </span><span class="s1">PS06Signer(</span><span class="s0">new </span><span class="s1">SHA256Digest());
+<a name="l68"><span class="ln">68   </span></a>        signer.init(</span><span class="s0">false</span><span class="s1">, </span><span class="s0">new </span><span class="s1">PS06VerifyParameters((PS06PublicKeyParameters) publicKey, identity));
+<a name="l69"><span class="ln">69   </span></a>        signer.update(bytes, </span><span class="s5">0</span><span class="s1">, bytes.length);
+<a name="l70"><span class="ln">70   </span></a>
+<a name="l71"><span class="ln">71   </span></a>        </span><span class="s0">return </span><span class="s1">signer.verifySignature(signature);
+<a name="l72"><span class="ln">72   </span></a>    }
+<a name="l73"><span class="ln">73   </span></a>
+<a name="l74"><span class="ln">74   </span></a>    </span><span class="s0">public static void </span><span class="s1">main(String[] args) {
+<a name="l75"><span class="ln">75   </span></a>        PS06 ps06 = </span><span class="s0">new </span><span class="s1">PS06();
+<a name="l76"><span class="ln">76   </span></a>
+<a name="l77"><span class="ln">77   </span></a>        </span><span class="s2">// Setup -&gt; (Public Key, Master Secret Key)</span><span class="s1">
+<a name="l78"><span class="ln">78   </span></a>        AsymmetricCipherKeyPair keyPair = ps06.setup(ps06.createParameters(</span><span class="s5">256</span><span class="s1">, </span><span class="s5">256</span><span class="s1">));
+<a name="l79"><span class="ln">79   </span></a>
+<a name="l80"><span class="ln">80   </span></a>        </span><span class="s2">// Extract -&gt; Secret Key for Identity &quot;01001101&quot;</span><span class="s1">
+<a name="l81"><span class="ln">81   </span></a>        CipherParameters secretKey = ps06.extract(keyPair, </span><span class="s4">&quot;01001101&quot;</span><span class="s1">);
+<a name="l82"><span class="ln">82   </span></a>
+<a name="l83"><span class="ln">83   </span></a>        </span><span class="s2">// Sign</span><span class="s1">
+<a name="l84"><span class="ln">84   </span></a>        String message = </span><span class="s4">&quot;Hello World!!!&quot;</span><span class="s1">;
+<a name="l85"><span class="ln">85   </span></a>        </span><span class="s0">byte</span><span class="s1">[] signature = ps06.sign(message, secretKey);
+<a name="l86"><span class="ln">86   </span></a>
+<a name="l87"><span class="ln">87   </span></a>        </span><span class="s2">// verify with the same identity</span><span class="s1">
+<a name="l88"><span class="ln">88   </span></a>        assertTrue(ps06.verify(keyPair.getPublic(), message, </span><span class="s4">&quot;01001101&quot;</span><span class="s1">, signature));
+<a name="l89"><span class="ln">89   </span></a>
+<a name="l90"><span class="ln">90   </span></a>        </span><span class="s2">// verify with another identity</span><span class="s1">
+<a name="l91"><span class="ln">91   </span></a>        assertFalse(ps06.verify(keyPair.getPublic(), message, </span><span class="s4">&quot;01001100&quot;</span><span class="s1">, signature));
+<a name="l92"><span class="ln">92   </span></a>    }
+<a name="l93"><span class="ln">93   </span></a>
+<a name="l94"><span class="ln">94   </span></a>}
+<a name="l95"><span class="ln">95   </span></a></span></pre>
+        </section>
+
+    </body>
+</document>

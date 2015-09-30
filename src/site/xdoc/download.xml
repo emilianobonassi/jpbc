@@ -1,0 +1,149 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library - Download</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Download JPBC">
+
+            <p>
+                JPBC comes in the form of a
+                <span class="em">distro package</span>
+                that contains the jars and the source code
+                of the library.
+                Please see our
+                <a href="license.html">License FAQ</a>
+                before downloading.
+            </p>
+
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <font style="font-weight: bold;">Package</font>
+                        </td>
+                        <td>
+                            <font style="font-weight: bold;">Version</font>
+                        </td>
+                        <td>
+                            <font style="font-weight: bold;">Category</font>
+                        </td>
+                        <td/>
+                    </tr>
+
+                    <tr valign="top">
+                        <td>JPBC</td>
+                        <td>2.0.0</td>
+                        <td>Stable</td>
+                        <td>
+                            <em>
+                                <a href="http://sourceforge.net/projects/jpbc/files/">
+                                    Download
+                                </a>
+                            </em>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <p>
+                <span class="em">
+                    <a href="http://prdownloads.sourceforge.net/jpbc/?sort_by=date&amp;sort=desc">Browse all JPBC downloads</a>
+                </span>
+            </p>
+        </section>
+
+
+        <section name="Use JPBC">
+            <p>
+                Notice that, all the jars files can be found under the <code>jars</code> folder.
+            </p>
+
+            <a name="requirements"/>
+            <subsection name="System Requirements">
+                <table>
+                    <tbody>
+                        <tr class="b">
+                            <td align="left">
+                                <b>JDK</b>
+                            </td>
+                            <td align="left">1.6 or above
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </subsection>
+
+            <a name="usage"/>
+            <subsection name="JPBC Usage">
+                <p>
+                    To use JPBC, add to your classpath the following jars:
+                    <ol type="1">
+                        <li>
+                            <span class="em"><code>jpbc_2.0.0-api.jar</code></span>
+                            and
+                        </li>
+                        <li>
+                            <span class="em"><code>jpbc_2.0.0-plaf.jar</code></span>.
+                        </li>
+                    </ol>
+                </p>
+            </subsection>
+            <subsection name="PBC Wrapper Usage">
+                <p>
+                    To use the PBC Wrapper, a shared C library must be compiled
+                    and installed properly as shown
+                    <a href="http://crypto.stanford.edu/pbc/manual/ch08s03.html">here</a>.
+                </p>
+                <p>
+                    Then, to use the wrapper, include the following jars:
+                </p>
+                <ol>
+                    <li>
+                        <span class="em"><code>jpbc_2.0.0-pbc.jar</code></span>
+                        and
+                    </li>
+                    <li>
+                        <span class="em"><code>jna-3.1.0.jar</code></span>.
+                    </li>
+                </ol>
+            </subsection>
+
+            <subsection name="Multilinear Maps Usage">
+                <p>
+                    To use the
+                    <a href="docs/pairing.html">Multilinear Maps</a>,
+                    include the following jar:
+                </p>
+                <ol>
+                    <li>
+                        <span class="em"><code>jpbc_2.0.0-mm.jar</code></span>.
+                    </li>
+                </ol>
+            </subsection>
+
+            <subsection name="Cryptosystems Usage">
+                <p>
+                    To use the
+                    <a href="schemes/schemes.html">cryptosystems</a>
+                    provided by JPBC
+                    include the following jars:
+                </p>
+                <ol>
+                    <li>
+                        <span class="em"><code>jpbc-crypto-2.0.0.jar</code></span>
+                        and
+                    </li>
+                    <li>
+                        <span class="em"><code>bcprov-jdk16-1.46</code></span>.
+                    </li>
+                </ol>
+            </subsection>
+        </section>
+    </body>
+</document>

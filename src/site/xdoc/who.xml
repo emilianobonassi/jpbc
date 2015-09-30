@@ -1,0 +1,41 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Who Uses JPBC?</title>
+        <author email="adecaro@users.sourceforge.net">Angelo De Caro</author>
+    </properties>
+
+    <body>
+
+        <section name="Who Uses JPBC">
+            If your project uses the JPBC library and you don’t mind it appearing here please
+            <a href="./contact.html">contact</a>
+            me.
+        </section>
+
+        <section name="They are using JPBC">
+            <subsection name="jzks">
+                <a href="http://code.google.com/p/jzks/">jzks</a>
+                is an implementation of Zero Knowledge Sets - Elementary Database based on Concise Vector Mercurial
+                Commitments proposed by Benoit Libert and Moti Yung (2010).
+            </subsection>
+
+            <subsection name="Crypto-Book">
+                The <a href="http://www.crypto-book.com/">Crypto-Book</a>
+                project looks at investigating using identity based encryption (IBE) and other
+                crypto systems over social networks. We have currently implemented a system to
+                send encrypted Facebook messages using IBE.
+            </subsection>
+
+            <subsection name="NICS Crypto">
+                <a href="https://www.nics.uma.es/dnunez/nics-crypto">NICS Crypto</a>
+                is a cryptography library written in Java, which extends Java Cryptography Architecture (JCA)
+                to support non-traditional cryptographic primitives, such as Proxy Re-Encryption.
+            </subsection>
+
+        </section>
+
+    </body>
+</document>

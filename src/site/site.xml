@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+
+    <skin>
+        <groupId>it.unisa.dia.gas</groupId>
+        <artifactId>jpbc-site-skin</artifactId>
+        <version>2.0.0</version>
+    </skin>
+
+    <body>
+
+        <links>
+            <item name="PBC" href="http://crypto.stanford.edu/pbc/"/>
+            <item name="Sourceforge" href="http://sourceforge.net/projects/jpbc/"/>
+            <item name="Piwik" href="http://sourceforge.net/apps/piwik/jpbc/index.php?module=CoreHome&amp;action=index&amp;idSite=2&amp;period=week&amp;date=today"/>
+        </links>
+
+        <menu name="JPBC Library">
+            <item name="Introduction" href="index.html"/>
+            <item name="Download" href="download.html"/>
+            <item name="Build HowTo" href="buildHowto.html"/>
+            <item name="Contact" href="contact.html"/>
+            <item name="Benchmark" href="benchmark.html"/>
+            <item name="Android" href="/docs/android.html"/>
+            <item name="Who Uses JPBC?" href="who.html"/>
+            <item name="FAQ" href="faq.html"/>
+        </menu>
+
+        <menu name="Documentation">
+
+            <item name="Java Docs" href="/java-docs/api/index.html"/>
+
+            <item name="Pairing" href="/docs/pairing.html">
+                <item name="Initializing" href="/docs/pairing.html#initializing"/>
+                <item name="Applying" href="/docs/pairing.html#applying"/>
+                <item name="Preprocessing" href="/docs/pairing.html#preprocessing"/>
+            </item>
+
+            <item name="Field" href="/docs/field.html"/>
+
+            <item name="Element" href="/docs/element.html">
+                <item name="Initializing" href="/docs/element.html#initializing"/>
+                <item name="Assigning" href="/docs/element.html#assigning"/>
+                <item name="Arithmetic" href="/docs/element.html#arithmetic"/>
+                <item name="Exponentiation" href="/docs/element.html#exponentiation"/>
+                <item name="Comparing" href="/docs/element.html#comparing"/>
+                <item name="Import/Export" href="/docs/element.html#io"/>
+                <item name="Immutable" href="/docs/element.html#immutable"/>
+                <item name="Preprocessing" href="/docs/element.html#preprocessing"/>
+            </item>
+
+            <item name="Parameter Generators" href="/docs/pg.html">
+                <item name="Bilinear Maps" href="/docs/ecpg.html">
+                    <item name="Type A" href="/docs/ecpg.html#TypeA"/>
+                    <item name="Type A1" href="/docs/ecpg.html#TypeA1"/>
+                    <item name="Type D" href="/docs/ecpg.html#TypeD"/>
+                    <item name="Type E" href="/docs/ecpg.html#TypeE"/>
+                    <item name="Type F" href="/docs/ecpg.html#TypeF"/>
+                    <item name="Type G" href="/docs/ecpg.html#TypeG"/>
+                </item>
+                <item name="Multilinear Maps" href="/docs/mmpg.html">
+                    <item name="Over the Integers [CTL'13]" href="/docs/mmpg.html#ctl13"/>
+                </item>
+            </item>
+
+            <item name="PBC Wrapper" href="/docs/pbcwrapper.html"/>
+        </menu>
+
+        <menu name="Crypto">
+            <item name="Schemes" href="/schemes/schemes.html">
+                <item name="Functional Encryption" href="/schemes/schemes.html#fe">
+                    <item name="ABE for Circuits [GGHSW'13]" href="/schemes/abe_gghsw13.html"/>
+                    <item name="ABE for Circuits [GGHVV'13]" href="/schemes/abe_gghvv13.html"/>
+                    <item name="Regular Languages [W'12]" href="/schemes/rl_w12.html"/>
+                    <item name="Unbounded HIBE [LW'11]" href="/schemes/uhibe_lw11.html"/>
+                    <item name="Inner Product [LOSTW'10]" href="/schemes/ip_lostw10.html"/>
+                    <item name="Anonymous HIBE [DIP'10]" href="/schemes/ahibe_dip10.html"/>
+                    <item name="HVE [IP'08]" href="/schemes/hve_ip08.html"/>
+                </item>
+                <item name="Signature" href="/schemes/schemes.html#ss">
+                    <item name="SS [BLS'01]" href="/schemes/ss_bls01.html"/>
+                    <item name="IBS [PS'06]" href="/schemes/ibs_ps06.html"/>
+                </item>
+                <item name="KEM" href="/schemes/kem.html"/>
+            </item>
+        </menu>
+        
+        ${reports}
+    </body>
+
+</project>

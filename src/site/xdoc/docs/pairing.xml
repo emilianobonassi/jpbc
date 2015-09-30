@@ -1,0 +1,472 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Docs - Pairing Functions</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Pairing for Cryptography">
+
+            <subsection name="Bilinear Setting">
+                <p>
+                Let <!-- MATH
+ $\mathbb{G}_1,\mathbb{G}_2$
+ -->
+                <span class="MATH"><img
+                        width="54" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img1.png"
+                        alt="$ \mathbb{G}_1,\mathbb{G}_2$"/></span>
+                and
+                <!-- MATH
+$\mathbb{G}_T$
+-->
+                <span class="MATH"><img
+                        width="29" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img2.png"
+                        alt="$ \mathbb{G}_T$"/></span>
+                be cyclic groups of prime order
+                <span class="MATH"><img
+                        width="13" height="16" align="BOTTOM" border="0"
+                        src="../images/pairing/img3.png"
+                        alt="$ r$"/></span>
+                Let
+                <span class="MATH"><img
+                        width="20" height="30" align="MIDDLE" border="0"
+                        src="../images/pairing/img4.png"
+                        alt="$ g_1$"/></span>
+                be a generator of
+                <!-- MATH
+$\mathbb{G}_1$
+-->
+                <span class="MATH"><img
+                        width="26" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img5.png"
+                        alt="$ \mathbb{G}_1$"/></span>
+                and
+                <span class="MATH"><img
+                        width="20" height="30" align="MIDDLE" border="0"
+                        src="../images/pairing/img6.png"
+                        alt="$ g_2$"/></span>
+                be a generator of
+                <!-- MATH
+                 $\mathbb{G}_2$
+                 -->
+                <span class="MATH"><img
+                        width="26" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img7.png"
+                        alt="$ \mathbb{G}_2$"/></span>.
+                A <span class="em">bilinear pairing</span>
+                or <span class="em">bilinear map</span>
+                is an efficiently computable function
+                <!-- MATH
+$e : \mathbb{G}_1 \times \mathbb{G}_2 \leftarrow \mathbb{G}_T$
+-->
+                <span class="MATH"><img
+                        width="142" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img8.png"
+                        alt="$ e : \mathbb{G}_1 \times \mathbb{G}_2 \leftarrow \mathbb{G}_T$"/></span>
+                such that:
+
+                </p>
+
+                <ol>
+                    <li>
+                        <p>
+                        <span class="em">Bilinearity</span>:
+                        for all <!-- MATH
+ $a,b\in\mathbb{Z}_r$
+ -->
+                        <span class="MATH"><img
+                                width="69" height="32" align="MIDDLE" border="0"
+                                src="../images/pairing/img9.png"
+                                alt="$ a,b\in\mathbb{Z}_r$"/></span>
+                        (the ring of integers modulo r)
+                        it holds that
+                        <!-- MATH
+ $e(g_1^a,g_2^b) =
+                        e(g_1,g_2)^{ab}$
+ -->
+                        <span class="MATH"><img
+                                width="165" height="38" align="MIDDLE" border="0"
+                                src="../images/pairing/img10.png"
+                                alt="$ e(g_1^a,g_2^b) = e(g_1,g_2)^{ab}$"/></span>
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                        <span class="em">Non-degeneracy</span>:
+                        <!-- MATH
+                         $e(g_1,g_2)\ne 1$
+                         -->
+                        <span class="MATH"><img
+                                width="98" height="34" align="MIDDLE" border="0"
+                                src="../images/pairing/img11.png"
+                                alt="$ e(g_1,g_2)\ne 1$"/></span>
+                        </p>
+                    </li>
+                </ol>
+
+                <p>
+                The tuple
+                <!-- MATH
+$(r,g_1,g_2,\mathbb{G}_1,\mathbb{G}_2,\mathbb{G}_T)$
+-->
+                <span class="MATH"><img
+                        width="162" height="34" align="MIDDLE" border="0"
+                        src="../images/pairing/img12.png"
+                        alt="$ (r,g_1,g_2,\mathbb{G}_1,\mathbb{G}_2,\mathbb{G}_T)$"/></span>
+                is called
+                <span class="em">asymmetric bilinear setting</span>.
+                On the other hand, if
+                <!-- MATH
+$\mathbb{G}_1=\mathbb{G}_2=\mathbb{G}$
+-->
+                <span class="MATH"><img
+                        width="107" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img13.png"
+                        alt="$ \mathbb{G}_1=\mathbb{G}_2=\mathbb{G}$"/></span>
+                and g is a generator of
+                <!-- MATH
+$\mathbb{G}$
+-->
+                <span class="MATH"><img
+                        width="18" height="16" align="BOTTOM" border="0"
+                        src="../images/pairing/img14.png"
+                        alt="$ \mathbb{G}$"/></span>
+                then the tuple
+                <!-- MATH
+$(r,g,\mathbb{G},\mathbb{G}_T)$
+-->
+                <span class="MATH"><img
+                        width="95" height="34" align="MIDDLE" border="0"
+                        src="../images/pairing/img15.png"
+                        alt="$ (r,g,\mathbb{G},\mathbb{G}_T)$"/></span> is called
+                <span class="em">symmetric bilinear setting</span>.
+                In the symmetric setting the order of
+                <!-- MATH
+$\mathbb{G}$
+-->
+                <span class="MATH"><img
+                        width="18" height="16" align="BOTTOM" border="0"
+                        src="../images/pairing/img14.png"
+                        alt="$ \mathbb{G}$"/></span>
+                and
+                <!-- MATH
+$\mathbb{G}_T$
+-->
+                <span class="MATH"><img
+                        width="29" height="32" align="MIDDLE" border="0"
+                        src="../images/pairing/img2.png"
+                        alt="$ \mathbb{G}_T$"/></span>
+                need not to be prime.
+                </p>
+
+                <p>
+                The cryptographic relevance of a bilinear mapping stems from the fact
+                that in cyclic
+                groups that admit such a mapping the
+                <span class="em">Decisional Diffie-Hellman</span>
+                assumption does not hold.
+                Indeed, given
+                <!-- MATH
+$(g,g^x,g^y,g^z)$
+-->
+                <span class="MATH"><img
+                        width="101" height="34" align="MIDDLE" border="0"
+                        src="../images/pairing/img16.png"
+                        alt="$ (g,g^x,g^y,g^z)$"/></span>
+                it is possible to check if
+                <span class="MATH"><img
+                        width="56" height="30" align="MIDDLE" border="0"
+                        src="../images/pairing/img17.png"
+                        alt="$ z=xy$"/></span>
+                (and thus solve the Decisional DH problem) by testing
+                <span class="MATH"><img
+                        width="59" height="34" align="MIDDLE" border="0"
+                        src="../images/pairing/img18.png"
+                        alt="$ e(g,g^z)$"/></span>
+                and
+                <!-- MATH
+$e(g^x,g^y)$
+-->
+                <span class="MATH"><img
+                        width="68" height="34" align="MIDDLE" border="0"
+                        src="../images/pairing/img19.png"
+                        alt="$ e(g^x,g^y)$"/></span>
+                for equality.
+
+                </p>
+            </subsection>
+
+            <subsection name="Multilinear Setting">
+                <p>
+                An <span class="MATH"><img
+                    width="12" height="16" align="BOTTOM" BORDER="0"
+                    src="../images/pairing/img20.png"
+                    alt="$ \ell$"/></span>-group system consists of <span class="MATH"><img
+                    width="12" height="16" align="BOTTOM" BORDER="0"
+                    src="../images/pairing/img20.png"
+                    alt="$ \ell$"/></span>
+                cyclic groups <!-- MATH
+ $\mathbb{G}_1,\ldots,\mathbb{G}_\ell$
+ -->
+                <span class="MATH"><img
+                        width="84" height="32" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img21.png"
+                        alt="$ \mathbb{G}_1,\ldots,\mathbb{G}_\ell$"/></span>
+                of prime order <span class="MATH"><img
+                    width="13" height="16" align="BOTTOM" BORDER="0"
+                    src="../images/pairing/img3.png"
+                    alt="$ r$"/></span>, along with bilinear maps
+                <!-- MATH
+ $e_{i,j} : \mathbb{G}_i \times  \mathbb{G}_j \rightarrow \mathbb{G}_{i+j}$
+ -->
+                <span class="MATH"><img
+                        width="166" height="32" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img22.png"
+                        alt="$ e_{i,j} : \mathbb{G}_i \times \mathbb{G}_j \rightarrow \mathbb{G}_{i+j}$"/></span>
+                for all <span class="MATH"><img
+                    width="58" height="31" align="MIDDLE" BORDER="0"
+                    src="../images/pairing/img23.png"
+                    alt="$ i,j\geq 1$"/></span>
+                with <!-- MATH
+ $i+j\leq\ell$
+ -->
+                <span class="MATH"><img
+                        width="70" height="32" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img24.png"
+                        alt="$ i+j\leq\ell$"/></span>.
+                Let <span class="MATH"><img
+                    width="18" height="30" align="MIDDLE" BORDER="0"
+                    src="../images/pairing/img25.png"
+                    alt="$ g_i$"/></span> be a canonical generator of
+                <!-- MATH
+ $\mathbb{G}_i$
+ -->
+                <span class="MATH"><img
+                        width="23" height="32" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img26.png"
+                        alt="$ \mathbb{G}_i$"/></span>,
+                the map <!-- MATH
+ $e_{i,j}(g_i^a,g_j^b)=g_{i+j}^{ab}$
+ -->
+                <span class="MATH"><img
+                        width="135" height="38" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img27.png"
+                        alt="$ e_{i,j}(g_i^a,g_j^b)=g_{i+j}^{ab}$"/></span>.
+                Finally, it can also be useful to define the group
+                <!-- MATH
+ $\mathbb{G}_0=\mathbb{Z}_{r}$
+ -->
+                <span class="MATH"><img
+                        width="68" height="32" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img28.png"
+                        alt="$ \mathbb{G}_0=\mathbb{Z}_{r}$"/></span>
+                of exponents to which this pairing  naturally extends.
+                </p>
+                <p>
+                The tuple
+                <!-- MATH
+ $\{r,\{\mathbb{G}_i,g_i\}_{i\in[\ell]}, \{e_{i,j}\}_{i,j\geq 1, i+j\leq\ell}\}$
+ -->
+                <span class="MATH"><img
+                        width="245" height="34" align="MIDDLE" BORDER="0"
+                        src="../images/pairing/img29.png"
+                        alt="$ \{r,\{\mathbb{G}_i,g_i\}_{i\in[\ell]}, \{e_{i,j}\}_{i,j\geq 1, i+j\leq\ell}\}$"/></span>
+                is called
+                <span class="em">multilinear setting</span>.
+                </p>
+            </subsection>
+
+            <a name="initializing"/>
+            <subsection name="Initializing Pairings">
+                <p>
+                    The
+                    <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                    interface provides access to the algebraic structures underlying the pairing computation
+                    and the pairing function.
+                </p>
+
+                <p>
+                    The easiest way to obtain an instance of the
+                    <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                    interface is by using the factory provided by JPBC.
+                    The factory takes in input the pairing parameters
+                    and instantiates the appropriate classes.
+                    To generate the pairing parameters look at this
+                    <a href="./pg.html">page</a>.
+                </p>
+
+                <p>
+                    Let's now see how to use the factory.
+                </p>
+
+                <p>
+                    Assume that the pairing parameters are stored in a file
+                    called <code>params.properties</code> which is available in the working director.
+                    Then, the following code can be used to instantiate the Pairing interface
+                    with parameters loaded from <code>params.properties</code>.
+                </p>
+<source>import it.unisa.dia.gas.jpbc.*;
+import it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+
+Pairing pairing = PairingFactory.getPairing("params.properties");
+</source>
+                <p>
+                    For bilinear maps only,
+                    to use the PBC wrapper and gain in performance,
+                    the <code>usePBCWhenPossible</code> property of the pairing
+                    factory must be set.
+                </p>
+<source>PairingFactory.getInstance().setUsePBCWhenPossible(true);</source>
+                <p>
+                    Notice that, to effectively use the wrapper
+                    the <code>usePBCWhenPossible</code> property must be set before invoking
+                    the <code>getPairing</code> method.
+                </p>
+                <p>
+                    Moreover, if PBC and the JPBC wrapper are not installed properly then
+                    the factory will resort to the JPBC pairing implementation.
+                    <br/>
+                    The instructions to properly setup the PBC wrapper are <a href="./pbcwrapper.html">here</a>.
+                </p>
+            </subsection>
+
+            <a name="accessing"/>
+            <subsection name="Accessing Algebraic Structures">
+            <p>
+                The <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                interface provides methods to access the algebraic structures
+                involved in the pairing computation.
+                Here are the methods:
+            </p>
+
+<source xml:space="preserve">/* Return Zr */
+Field Zr = pairing.getZr();
+
+/* Return G1 */
+Field G1 = pairing.getG1();
+
+/* Return G2 */
+Field G2 = pairing.getG2();
+
+/* Return GT */
+Field GT = pairing.getGT();
+</source>
+
+                <p>
+                These algebraic structures can be also accessed by index
+                with the following mapping.
+                </p>
+
+<source xml:space="preserve">/* Return Zr */
+Field Zr = pairing.getFieldAt(0);
+
+/* Return G1 */
+Field G1 = pairing.getFieldAt(1);
+
+/* Return G2 */
+Field G2 = pairing.getFieldAt(2);
+
+/* Return GT */
+Field GT = pairing.getFieldAt(3);
+</source>
+                <p>
+                This is especially useful when dealing with multilinear maps
+                to access the algebraic structures at different levels.
+                <br/>
+                The number of algebraic structures available is given by
+                the degree of the pairing that can be obtained by invoking the following method.
+                </p>
+
+<source xml:space="preserve">int degree = pairing.getDegree();</source>
+
+                <p>
+                In particular, there are
+                <code>degree+1</code> algebraic structures available indexed from
+                <code>0</code> to <code>degree</code>.
+                </p>
+
+                <p>
+                Finally, elements of these algebraic structures can be initialized and manipulated
+                for cryptographic operations as shown
+                <a href="./field.html">here</a>.
+                </p>
+            </subsection>
+
+
+            <a name="applying"/>
+            <subsection name="Applying pairings">
+                <p>
+                    The <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                    interface provides methods to apply the pairing function.
+
+                    Given two elements <code>Element in1, in2</code>, belonging
+                    to the appropriate algebraic structures, their pairing
+                    can be computed by invoking the <code>pairing</code>
+                    method on input <code>in1</code> and <code>in2</code>
+                    as follows:
+                </p>
+<source>Element out = pairing.pairing(in1, in2);</source>
+
+                <p>
+                    Furthermore, the <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Pairing.html"><code>Pairing</code></a>
+                    interface let us compute the product of pairings.
+                    Given two vectors of the same length <code>Element[] in1, in2</code>
+                    of elements belonging to the appropriate algebraic structures,
+                    their product pairing can be computed by invoking the <code>pairing</code>
+                    method on input <code>in1</code> and <code>in2</code>
+                    as follows:
+                </p>
+<source xml:space="preserve">
+Element out = pairing.pairing(in1, in2);
+</source>
+            </subsection>
+
+            <a name="preprocessing"/>
+            <subsection name="Preprocessing">
+                <p>
+                    If it is known in advance that a particular value
+                    will be paired several times
+                    then time can be saved in the
+                    long run by using preprocessing.
+                </p>
+
+<source xml:space="preserve">
+/* Get ready to perform a pairing whose first input is in1,
+store the results of time-saving precomputation in ppp. */
+
+Element in1 = pairing.getG1().newRandomElement();
+PairingPreProcessing ppp = pairing.pairing(in1);
+
+/* Compute the pairing using in2 and the preprocessed information
+stored in ppp. The inputs to the pairing are the element
+previously used to initialize ppp and the element in2. */
+
+Element in2 = pairing.getG2().newRandomElement();
+Element out = ppp.pairing(in2);
+</source>
+
+                <p>
+                    The result of the precomputation can be stored to be used later.
+                    The following code convert
+                    <code>ppp</code>
+                    to a byte array:
+                </p>
+<source xml:space="preserve">
+byte[] pppBytes = ppp.toBytes();
+</source>
+                <p>
+                    To convert the byte array to an instance of the PairingPreProcessing interface
+                    use the following code:
+                </p>
+<source xml:space="preserve">
+PairingPreProcessing ppp = pairing.getPairingPreProcessingFromBytes(pppBytes);
+</source>
+            </subsection>
+        </section>
+    </body>
+</document>

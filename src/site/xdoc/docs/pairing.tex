@@ -1,0 +1,92 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\begin{document}
+Let $\mathbb{G}_1,\mathbb{G}_2$
+                    and
+                    $\mathbb{G}_T$
+                    be cyclic groups of prime order
+                    $r$
+                    Let
+                    $g_1$
+                    be a generator of
+                    $\mathbb{G}_1$
+                    and
+$g_2$
+                    be a generator of
+$\mathbb{G}_2$.
+                    A {\em bilinear pairing}
+                    or {\em bilinear map}
+                    is an efficiently computable function
+                    $e : \mathbb{G}_1 \times \mathbb{G}_2 \leftarrow \mathbb{G}_T$
+                    such that:
+
+\begin{enumerate}
+
+\item {\em Bilinearity}:
+for all $a,b\in\mathbb{Z}_r$
+                        (the ring of integers modulo r)
+                        it holds that
+                        $e(g_1^a,g_2^b) = 
+                        e(g_1,g_2)^{ab}$                    
+\item {\em Non-degeneracy}:
+$e(g_1,g_2)\ne 1$
+
+\end{enumerate}             
+               
+                    The tuple
+                    $(r,g_1,g_2,\mathbb{G}_1,\mathbb{G}_2,\mathbb{G}_T)$
+                    is called
+                    {\em asymmetric bilinear setting}.
+                    On the other hand, if
+                    $\mathbb{G}_1=\mathbb{G}_2=\mathbb{G}$
+                    and g is a generator of
+                    $\mathbb{G}$
+                    then the tuple
+                    $(r,g,\mathbb{G},\mathbb{G}_T)$ is called
+                    {\em symmetric bilinear setting}.
+                    In the symmetric setting the order of
+                    $\mathbb{G}$
+                    and
+                    $\mathbb{G}_T$
+                    need not to be prime.
+
+                    The cryptographic relevance of a bilinear mapping stems from the fact
+                     that in cyclic
+                    groups that admit such a mapping the
+                    {\em Decisional Diffie-Hellman}
+                    assumption does not hold.
+                    Indeed, given
+                    $(g,g^x,g^y,g^z)$
+                    it is possible to check if
+                    $z=xy$
+                    (and thus solve the Decisional DH problem) by testing
+                    $e(g,g^z)$
+                    and
+                    $e(g^x,g^y)$
+                    for equality.
+                    
+                    
+\newpage
+
+                An $\ell$-group system consists of $\ell$
+                cyclic groups $\mathbb{G}_1,\ldots,\mathbb{G}_\ell$
+                of prime order $r$, along with bilinear maps
+                $e_{i,j} : \mathbb{G}_i \times  \mathbb{G}_j \rightarrow \mathbb{G}_{i+j}$
+                for all $i,j\geq 1$
+                with $i+j\leq\ell$.
+                Let $g_i$ be a canonical generator of
+                $\mathbb{G}_i$,
+                the map $e_{i,j}(g_i^a,g_j^b)=g_{i+j}^{ab}$.
+                Finally, it can also be useful to define the group
+                $\mathbb{G}_0=\mathbb{Z}_{r}$
+                of exponents to which this pairing  naturally extends.
+
+                The tuple
+                $\{r,\{\mathbb{G}_i,g_i\}_{i\in[\ell]}, \{e_{i,j}\}_{i,j\geq 1, i+j\leq\ell}\}$
+                is called
+                {\em multilinear setting}.
+                    
+\end{document}

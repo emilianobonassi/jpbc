@@ -1,0 +1,198 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Schemes - Fully Secure Functional Encryption: Attribute-Based Encryption and (Hierarchical) Inner Product Encryption</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Fully Secure Functional Encryption: Attribute-Based Encryption and (Hierarchical) Inner Product Encryption">
+            <subsection name="Authors">
+                Allison Lewko and Tatsuaki Okamoto and Amit Sahai and Katsuyuki Takashima and Brent Waters
+            </subsection>
+
+            <subsection name="Abstract">
+                In this paper, we present two fully secure functional encryption schemes. Our first result is a fully
+                secure attribute-based encryption (ABE) scheme. Previous constructions of ABE were only proven to be
+                selectively secure. We achieve full security by adapting the dual system encryption methodology recently
+                introduced by Waters and previously leveraged to obtain fully secure IBE and HIBE systems. The primary
+                challenge in applying dual system encryption to ABE is the richer structure of keys and ciphertexts. In
+                an IBE or HIBE system, keys and ciphertexts are both associated with the same type of simple object:
+                identities. In an ABE system, keys and ciphertexts are associated with more complex objects: attributes
+                and access formulas. We use a novel information-theoretic argument to adapt the dual system encryption
+                methodology to the more complicated structure of ABE systems. We construct our system in composite order
+                bilinear groups, where the order is a product of three primes. We prove the security of our system from
+                three static assumptions. Our ABE scheme supports arbitrary monotone access formulas.
+                Our second result is a fully secure (attribute-hiding) predicate encryption (PE) scheme for
+                inner-product predicates. As for ABE, previous constructions of such schemes were only proven to be
+                selectively secure. Security is proven under a non-interactive assumption whose size does not depend on
+                the number of queries. The scheme is comparably efficient to existing selectively secure schemes. We
+                also present a fully secure hierarchical PE scheme under the same assumption. The key technique used to
+                obtain these results is an elaborate combination of the dual system encryption methodology (adapted to
+                the structure of inner product PE systems) and a new approach on bilinear pairings using the notion of
+                dual pairing vector spaces (DPVS) proposed by Okamoto and Takashima.
+            </subsection>
+
+            <subsection name="URL">
+                <a href="http://eprint.iacr.org/2010/110.pdf">
+                    http://eprint.iacr.org/2010/110.pdf
+                </a>
+            </subsection>
+        </section>
+
+        <section name="Usage">
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.ip.lostw10;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.fe.PredicateOnlyEncryptionScheme;
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.ip.lostw10.engines.IPLOSTW10PredicateOnlyEngine;
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.ip.lostw10.generators.IPLOSTW10KeyPairGenerator;
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.ip.lostw10.generators.IPLOSTW10ParametersGenerator;
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.ip.lostw10.generators.IPLOSTW10SecretKeyGenerator;
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.fe.ip.lostw10.params.*;
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.jpbc.Element;
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.jpbc.Pairing;
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+<a name="l13"><span class="ln">13   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CipherParameters;
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.InvalidCipherTextException;
+<a name="l15"><span class="ln">15   </span></a>
+<a name="l16"><span class="ln">16   </span></a></span><span class="s0">import </span><span class="s1">java.security.SecureRandom;
+<a name="l17"><span class="ln">17   </span></a></span><span class="s0">import </span><span class="s1">java.util.Random;
+<a name="l18"><span class="ln">18   </span></a>
+<a name="l19"><span class="ln">19   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.assertEquals;
+<a name="l20"><span class="ln">20   </span></a>
+<a name="l21"><span class="ln">21   </span></a></span><span class="s2">/**
+<a name="l22"><span class="ln">22   </span></a> * </span><span class="s3">@author </span><span class="s2">Angelo De Caro (jpbclib@gmail.com)
+<a name="l23"><span class="ln">23   </span></a> */</span><span class="s1">
+<a name="l24"><span class="ln">24   </span></a></span><span class="s0">public class </span><span class="s1">IPLOSTW10 {
+<a name="l25"><span class="ln">25   </span></a>
+<a name="l26"><span class="ln">26   </span></a>
+<a name="l27"><span class="ln">27   </span></a>    </span><span class="s0">public </span><span class="s1">IPLOSTW10() {
+<a name="l28"><span class="ln">28   </span></a>    }
+<a name="l29"><span class="ln">29   </span></a>
+<a name="l30"><span class="ln">30   </span></a>
+<a name="l31"><span class="ln">31   </span></a>    </span><span class="s0">public </span><span class="s1">AsymmetricCipherKeyPair setup(</span><span class="s0">int </span><span class="s1">n) {
+<a name="l32"><span class="ln">32   </span></a>        IPLOSTW10KeyPairGenerator setup = </span><span class="s0">new </span><span class="s1">IPLOSTW10KeyPairGenerator();
+<a name="l33"><span class="ln">33   </span></a>        setup.init(</span><span class="s0">new </span><span class="s1">IPLOSTW10KeyGenerationParameters(
+<a name="l34"><span class="ln">34   </span></a>                </span><span class="s0">new </span><span class="s1">SecureRandom(),
+<a name="l35"><span class="ln">35   </span></a>                createParameters(n)
+<a name="l36"><span class="ln">36   </span></a>        ));
+<a name="l37"><span class="ln">37   </span></a>
+<a name="l38"><span class="ln">38   </span></a>        </span><span class="s0">return </span><span class="s1">setup.generateKeyPair();
+<a name="l39"><span class="ln">39   </span></a>    }
+<a name="l40"><span class="ln">40   </span></a>
+<a name="l41"><span class="ln">41   </span></a>    </span><span class="s0">public </span><span class="s1">IPLOSTW10Parameters createParameters(</span><span class="s0">int </span><span class="s1">n) {
+<a name="l42"><span class="ln">42   </span></a>        </span><span class="s0">return new </span><span class="s1">IPLOSTW10ParametersGenerator().init(
+<a name="l43"><span class="ln">43   </span></a>                PairingFactory.getPairingParameters(</span><span class="s4">&quot;params/curves/a.properties&quot;</span><span class="s1">),
+<a name="l44"><span class="ln">44   </span></a>                n).generateParameters();
+<a name="l45"><span class="ln">45   </span></a>    }
+<a name="l46"><span class="ln">46   </span></a>
+<a name="l47"><span class="ln">47   </span></a>    </span><span class="s0">public byte</span><span class="s1">[] encrypt(CipherParameters publicKey, Element[] x) {
+<a name="l48"><span class="ln">48   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l49"><span class="ln">49   </span></a>            PredicateOnlyEncryptionScheme engine = </span><span class="s0">new </span><span class="s1">IPLOSTW10PredicateOnlyEngine();
+<a name="l50"><span class="ln">50   </span></a>            engine.init(</span><span class="s0">true</span><span class="s1">, </span><span class="s0">new </span><span class="s1">IPLOSTW10EncryptionParameters((IPLOSTW10PublicKeyParameters) publicKey, x));
+<a name="l51"><span class="ln">51   </span></a>
+<a name="l52"><span class="ln">52   </span></a>            </span><span class="s0">return </span><span class="s1">engine.process();
+<a name="l53"><span class="ln">53   </span></a>        } </span><span class="s0">catch </span><span class="s1">(InvalidCipherTextException e) {
+<a name="l54"><span class="ln">54   </span></a>            </span><span class="s0">throw new </span><span class="s1">RuntimeException(e);
+<a name="l55"><span class="ln">55   </span></a>        }
+<a name="l56"><span class="ln">56   </span></a>    }
+<a name="l57"><span class="ln">57   </span></a>
+<a name="l58"><span class="ln">58   </span></a>    </span><span class="s0">public </span><span class="s1">CipherParameters keyGen(CipherParameters privateKey, Element[] y) {
+<a name="l59"><span class="ln">59   </span></a>        IPLOSTW10SecretKeyGenerator keyGen = </span><span class="s0">new </span><span class="s1">IPLOSTW10SecretKeyGenerator();
+<a name="l60"><span class="ln">60   </span></a>        keyGen.init(</span><span class="s0">new </span><span class="s1">IPLOSTW10SecretKeyGenerationParameters(
+<a name="l61"><span class="ln">61   </span></a>                (IPLOSTW10MasterSecretKeyParameters) privateKey,
+<a name="l62"><span class="ln">62   </span></a>                y
+<a name="l63"><span class="ln">63   </span></a>        ));
+<a name="l64"><span class="ln">64   </span></a>
+<a name="l65"><span class="ln">65   </span></a>        </span><span class="s0">return </span><span class="s1">keyGen.generateKey();
+<a name="l66"><span class="ln">66   </span></a>    }
+<a name="l67"><span class="ln">67   </span></a>
+<a name="l68"><span class="ln">68   </span></a>    </span><span class="s0">public boolean </span><span class="s1">test(CipherParameters secretKey, </span><span class="s0">byte</span><span class="s1">[] ciphertext) {
+<a name="l69"><span class="ln">69   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l70"><span class="ln">70   </span></a>            PredicateOnlyEncryptionScheme engine = </span><span class="s0">new </span><span class="s1">IPLOSTW10PredicateOnlyEngine();
+<a name="l71"><span class="ln">71   </span></a>            engine.init(</span><span class="s0">false</span><span class="s1">, secretKey);
+<a name="l72"><span class="ln">72   </span></a>
+<a name="l73"><span class="ln">73   </span></a>            </span><span class="s0">return </span><span class="s1">engine.evaluate(ciphertext);
+<a name="l74"><span class="ln">74   </span></a>        } </span><span class="s0">catch </span><span class="s1">(InvalidCipherTextException e) {
+<a name="l75"><span class="ln">75   </span></a>            </span><span class="s0">throw new </span><span class="s1">RuntimeException(e);
+<a name="l76"><span class="ln">76   </span></a>        }
+<a name="l77"><span class="ln">77   </span></a>    }
+<a name="l78"><span class="ln">78   </span></a>
+<a name="l79"><span class="ln">79   </span></a>
+<a name="l80"><span class="ln">80   </span></a>    </span><span class="s0">public </span><span class="s1">Element[][] createOrthogonalVectors(CipherParameters publicKey, </span><span class="s0">int </span><span class="s1">n) {
+<a name="l81"><span class="ln">81   </span></a>        Pairing pairing = PairingFactory.getPairing(((IPLOSTW10PublicKeyParameters) publicKey).getParameters().getParameters());
+<a name="l82"><span class="ln">82   </span></a>
+<a name="l83"><span class="ln">83   </span></a>        Element[][] result = </span><span class="s0">new </span><span class="s1">Element[</span><span class="s5">2</span><span class="s1">][n];
+<a name="l84"><span class="ln">84   </span></a>        Random random = </span><span class="s0">new </span><span class="s1">Random();
+<a name="l85"><span class="ln">85   </span></a>        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; n; i += </span><span class="s5">2</span><span class="s1">) {
+<a name="l86"><span class="ln">86   </span></a>            </span><span class="s0">if </span><span class="s1">(random.nextBoolean()) {
+<a name="l87"><span class="ln">87   </span></a>                result[</span><span class="s5">0</span><span class="s1">][i] = pairing.getZr().newZeroElement();
+<a name="l88"><span class="ln">88   </span></a>                result[</span><span class="s5">0</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">] = pairing.getZr().newZeroElement();
+<a name="l89"><span class="ln">89   </span></a>
+<a name="l90"><span class="ln">90   </span></a>                result[</span><span class="s5">1</span><span class="s1">][i] = pairing.getZr().newRandomElement();
+<a name="l91"><span class="ln">91   </span></a>                result[</span><span class="s5">1</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">] = pairing.getZr().newRandomElement();
+<a name="l92"><span class="ln">92   </span></a>            } </span><span class="s0">else </span><span class="s1">{
+<a name="l93"><span class="ln">93   </span></a>                result[</span><span class="s5">0</span><span class="s1">][i] = pairing.getZr().newOneElement();
+<a name="l94"><span class="ln">94   </span></a>                result[</span><span class="s5">0</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">] = pairing.getZr().newRandomElement();
+<a name="l95"><span class="ln">95   </span></a>
+<a name="l96"><span class="ln">96   </span></a>                result[</span><span class="s5">1</span><span class="s1">][i] = result[</span><span class="s5">0</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">].duplicate().negate();
+<a name="l97"><span class="ln">97   </span></a>                result[</span><span class="s5">1</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">] = pairing.getZr().newOneElement();
+<a name="l98"><span class="ln">98   </span></a>            }
+<a name="l99"><span class="ln">99   </span></a>        }
+<a name="l100"><span class="ln">100  </span></a>        </span><span class="s0">return </span><span class="s1">result;
+<a name="l101"><span class="ln">101  </span></a>    }
+<a name="l102"><span class="ln">102  </span></a>
+<a name="l103"><span class="ln">103  </span></a>    </span><span class="s0">public </span><span class="s1">Element[][] createNonOrthogonalVectors(CipherParameters publicKey, </span><span class="s0">int </span><span class="s1">n) {
+<a name="l104"><span class="ln">104  </span></a>        Pairing pairing = PairingFactory.getPairing(((IPLOSTW10PublicKeyParameters) publicKey).getParameters().getParameters());
+<a name="l105"><span class="ln">105  </span></a>
+<a name="l106"><span class="ln">106  </span></a>        Element[][] result = </span><span class="s0">new </span><span class="s1">Element[</span><span class="s5">2</span><span class="s1">][n];
+<a name="l107"><span class="ln">107  </span></a>        </span><span class="s0">for </span><span class="s1">(</span><span class="s0">int </span><span class="s1">i = </span><span class="s5">0</span><span class="s1">; i &lt; n; i += </span><span class="s5">2</span><span class="s1">) {
+<a name="l108"><span class="ln">108  </span></a>            result[</span><span class="s5">0</span><span class="s1">][i] = pairing.getZr().newOneElement();
+<a name="l109"><span class="ln">109  </span></a>            result[</span><span class="s5">0</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">] = pairing.getZr().newRandomElement();
+<a name="l110"><span class="ln">110  </span></a>
+<a name="l111"><span class="ln">111  </span></a>            result[</span><span class="s5">1</span><span class="s1">][i] = pairing.getZr().newOneElement().sub(result[</span><span class="s5">0</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">]);
+<a name="l112"><span class="ln">112  </span></a>            result[</span><span class="s5">1</span><span class="s1">][i + </span><span class="s5">1</span><span class="s1">] = pairing.getZr().newOneElement();
+<a name="l113"><span class="ln">113  </span></a>        }
+<a name="l114"><span class="ln">114  </span></a>        </span><span class="s0">return </span><span class="s1">result;
+<a name="l115"><span class="ln">115  </span></a>    }
+<a name="l116"><span class="ln">116  </span></a>
+<a name="l117"><span class="ln">117  </span></a>
+<a name="l118"><span class="ln">118  </span></a>
+<a name="l119"><span class="ln">119  </span></a>    </span><span class="s0">public static void </span><span class="s1">main(String[] args) {
+<a name="l120"><span class="ln">120  </span></a>        IPLOSTW10 iplostw10 = </span><span class="s0">new </span><span class="s1">IPLOSTW10();
+<a name="l121"><span class="ln">121  </span></a>
+<a name="l122"><span class="ln">122  </span></a>        </span><span class="s0">int </span><span class="s1">n = </span><span class="s5">2</span><span class="s1">;
+<a name="l123"><span class="ln">123  </span></a>
+<a name="l124"><span class="ln">124  </span></a>        </span><span class="s2">// Setup</span><span class="s1">
+<a name="l125"><span class="ln">125  </span></a>        AsymmetricCipherKeyPair keyPair = iplostw10.setup(n);
+<a name="l126"><span class="ln">126  </span></a>
+<a name="l127"><span class="ln">127  </span></a>        </span><span class="s2">// Test for orthogonal vectors</span><span class="s1">
+<a name="l128"><span class="ln">128  </span></a>        Element[][] vectors = iplostw10.createOrthogonalVectors(keyPair.getPublic(), n);
+<a name="l129"><span class="ln">129  </span></a>        assertEquals(</span><span class="s0">true</span><span class="s1">,
+<a name="l130"><span class="ln">130  </span></a>                iplostw10.test(
+<a name="l131"><span class="ln">131  </span></a>                        iplostw10.keyGen(keyPair.getPrivate(), vectors[</span><span class="s5">1</span><span class="s1">]),
+<a name="l132"><span class="ln">132  </span></a>                        iplostw10.encrypt(keyPair.getPublic(), vectors[</span><span class="s5">0</span><span class="s1">])
+<a name="l133"><span class="ln">133  </span></a>                )
+<a name="l134"><span class="ln">134  </span></a>        );
+<a name="l135"><span class="ln">135  </span></a>
+<a name="l136"><span class="ln">136  </span></a>        </span><span class="s2">// Test for non-orthogonal vectors</span><span class="s1">
+<a name="l137"><span class="ln">137  </span></a>        vectors = iplostw10.createNonOrthogonalVectors(keyPair.getPublic(), n);
+<a name="l138"><span class="ln">138  </span></a>        assertEquals(</span><span class="s0">false</span><span class="s1">,
+<a name="l139"><span class="ln">139  </span></a>                iplostw10.test(
+<a name="l140"><span class="ln">140  </span></a>                        iplostw10.keyGen(keyPair.getPrivate(), vectors[</span><span class="s5">1</span><span class="s1">]),
+<a name="l141"><span class="ln">141  </span></a>                        iplostw10.encrypt(keyPair.getPublic(), vectors[</span><span class="s5">0</span><span class="s1">])
+<a name="l142"><span class="ln">142  </span></a>                )
+<a name="l143"><span class="ln">143  </span></a>        );
+<a name="l144"><span class="ln">144  </span></a>    }
+<a name="l145"><span class="ln">145  </span></a>
+<a name="l146"><span class="ln">146  </span></a>
+<a name="l147"><span class="ln">147  </span></a>}</span></pre>
+        </section>
+
+    </body>
+</document>

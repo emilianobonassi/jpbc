@@ -1,0 +1,55 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Contact</title>
+        <author email="adecaro@users.sourceforge.net">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Contact">
+            JPBC is mainly developed by
+            <a href="http://www.dia.unisa.it/dottorandi/decaro/">Angelo De Caro</a>.
+            <br/>
+            Feel free to contact me at
+            <a href="mailto:jpbclib@gmail.com">mailto:jpbclib@gmail.com</a>.
+            <br/>
+            <p>
+                If you need help please don't hesitate to use the forums or the support
+                section at sourceforge.net.
+            </p>
+            <ul>
+                <li>
+                    <a href="http://sourceforge.net/projects/jpbc/forums">Forums
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://sourceforge.net/tracker/?group_id=266486">Support
+                        requests
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+        <section name="Contribute">
+            You can contribute to JPBC in a number of ways. The most obvious way is to report bugs
+            or request new features that would make JPBC a better library.
+            <ul>
+                <li>
+                    <a href="http://sourceforge.net/tracker/?group_id=266486&amp;atid=1134346">Bug tracker
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="http://sourceforge.net/tracker/?group_id=266486&amp;atid=1134349">Feature
+                        requests
+                        <img src="./images/external.png" alt="external link" border="0"/>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </body>
+</document>

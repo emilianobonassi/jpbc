@@ -1,0 +1,293 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Docs - Element Functions</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Elements">
+            <p>
+                Elements belonging to an algebraic structure (groups, rings and fields) are accessible through the
+                <a href="../java-docs/api/it/unisa/dia/gas/jpbc/Element.html">
+                    <code>Element</code>
+                </a>
+                interface that represents a
+                <i>mutable</i>
+                value.
+            </p>
+
+            <a name="initializing"/>
+            <subsection name="Initializing Elements">
+                <p>
+                    Instances of the
+                    <code>Element</code> interface can be obtained
+                    from an algebraic structure
+                    as shown
+                    <a href="./field.html#initializing">here</a>.
+                    <br/>
+                    <br/>
+                    This is a brief example that shows how to get a random value.
+<source>
+Field G1 = pairing.getG1();
+Element e = G1.newRandomElement();
+</source>
+                </p>
+            </subsection>
+
+            <a name="assigning"/>
+            <subsection name="Assigning Elements">
+                <p>
+                    The following methods can be used to assign specific values to elements.
+                    When integers are assigned,
+                    they are mapped to algebraic structures canonically
+                    if it makes sense (e.g. rings and fields).
+                </p>
+
+                <source>/* Sets an element to zero. */
+
+e.setToZero();
+                </source>
+
+                <source>/* Sets an element to one. */
+
+e.setToOne();
+                </source>
+
+                <source>/* If the element lies in a finite algebraic structure,
+assigns a uniformly random element to it. */
+
+e.setToRandom();
+                </source>
+
+                <source>/* Sets an element to an int. */
+
+e.set(5);
+                </source>
+
+                <source>/* Sets an element to a BigInteger. */
+
+e.set(new BigInteger("126785438"));
+                </source>
+
+                <source>/* Returns a duplicate of e. Notice that
+if e is immutable then the copy is mutable.*/
+
+Element duplicate = e.duplicate();
+                </source>
+            </subsection>
+
+            <a name="arithmetic"/>
+            <subsection name="Element Arithmetic">
+                The addition and the multiplication functions perform addition and multiplication operations in rings and
+                fields. For groups, both addition and multiplication represent the group operation (and similarly both
+                <code>0</code>
+                and
+                <code>1</code>
+                represent the identity element).
+
+                <source>/* Performs the addition between e and a.*/
+
+e.add(a);
+                </source>
+
+                <source>/* Performs the substraction between e and a.
+
+e.sub(a);
+                </source>
+
+                <source>/* Performs the multiplication between e and a. */
+
+e.mul(a);
+                </source>
+
+                <source>/* Performs the multiplication between e and an int. */
+
+e.mul(5);
+                </source>
+
+                <source>/* Performs the multiplication between e and a BigInteger. */
+
+e.mul(new BigInteger("5"));
+                </source>
+
+                <source>/* Performs the multiplication between e and z
+where z must be an element of a integer mod ring (i.e. Zr for some r). */
+
+Element z = pairing.getZr().newRandomElement();
+e.mulZn(z);
+                </source>
+
+                <source>/* Performs the division between e and a. */
+
+e.div(a);
+                </source>
+
+                <source>/* Performs the doubling of e. */
+
+e.twice();
+                </source>
+
+                <source>/* Performs the halving of e. */
+
+e.halve();
+                </source>
+
+                <source>/* Performs the inversion of e. */
+
+e.invert();
+                </source>
+
+                <source>/* Performs the squaring of e. */
+
+e.square();
+                </source>
+
+                <source>/* Performs the negation of e. */
+
+e.negate();
+                </source>
+
+                <source>/* Performs the square root of e. */
+
+e.sqrt();
+                </source>
+            </subsection>
+
+            <a name="exponentiation"/>
+            <subsection name="Element Exponentiation">
+                <source>/* Raises e to a BigInteger. */
+
+e.pow(BigInteger.valueOf(5));
+                </source>
+
+                <source>
+/* Raises e to a z which must be an element of a integer mod ring (i.e. Zr for some r). */
+
+Element z = pairing.getZr().newRandomElement();
+e.powZn(z);
+                </source>
+
+            </subsection>
+
+            <a name="preprocessing"/>
+            <subsection name="Preprocessing">
+                <p>
+                    If it knows in advance that a particular value will be raised several times
+                    then time can be saved in the long run by first calling the preprocessing function.
+                    The
+                    <a href="../java-docs/api/it/unisa/dia/gas/jpbc/ElementPowPreProcessing.html"><code>ElementPowPreProcessing</code></a>
+                    interface will do the job.
+                </p>
+
+                <source xml:space="preserve">/* Prepare e to be raised and store preprocessing information in ppp.
+e will be not modified in any way.*/
+
+ElementPowPreProcessing ppp = e.pow();
+
+/* Now let's raise using ppp which returns a new element which contains the result of the operation. */
+
+Element out1 = ppp.pow(BigInteger.valueOf(5));
+
+Element out2 = ppp.pow(pairing.getZr().newRandomElement());
+                </source>
+
+                The preprocessing information can be stored to be used later.
+                The following code convert <code>ppp</code> to a byte array:
+                <source xml:space="preserve">
+byte[] pppBytes = ppp.toBytes();
+                </source>
+                To get back an ElementPowPreProcessing object from a byte array
+                do the following
+                <source xml:space="preserve">
+ElementPowPreProcessing ppp = e.getField().getElementPowPreProcessingFromBytes(pppBytes);
+                </source>
+            </subsection>
+            
+            <a name="comparing"/>
+            <subsection name="Comparing Elements">
+                                
+                <source>/* Returns true if e is 1. */
+
+e.isOne();
+                </source>
+
+                <source>/* Returns true if e is 0. */
+
+e.isZero();
+                </source>
+
+                <source>/* Returns 0 if a and b are the same, non-zero otherwise. */
+
+a.compareTo(b);
+                </source>
+
+                <source>/* Returns true if a and b are the same, false otherwise. */
+
+a.isEqual(b);
+                </source>
+
+                <source>/* Returns true if e is a perfect square (quadratic residue), false otherwise. */
+
+e.isSqr();
+                </source>
+
+                <source>/* If e is zero, returns 0. For a non-zero value
+the behaviour depends on the algebraic structure. */
+
+e.sign();
+                </source>
+            </subsection>
+
+            <a name="io"/>
+            <subsection name="Import/Export Elements">
+
+                <source>/* Converts e to bytes. The number of bytes can be determined
+by calling e.getLengthInBytes(). */
+
+byte[] bytes = e.toBytes();
+                </source>
+
+                <source>/* To get back an Element from a byte array. */
+
+int bytesRead = e.setFromBytes(bytes);
+                </source>
+
+                <source>/* To get back an Element from a byte array starting from a given offset.
+
+int bytesRead = e.setFromBytes(bytes, offset);
+                </source>
+
+                <source>/* Sets e deterministically from a byte array.*/
+
+e.setFromHash(bytes, 0, bytes.length);
+                </source>
+
+            </subsection>
+
+
+            <a name="immutable"/>
+            <subsection name="Make Immutable">
+                <p>
+                    For immutable elements the internal value cannot be modified after it is created.
+                    Then, any method designed to modify the internal value of an element will return
+                    a new element whose internal value represents the result of the computation carried on.
+                </p>
+
+                <source>/* Returns <tt>true</tt> if e is immutable, <tt>false</tt> otherwise. */
+
+e.isImmutable();
+                </source>
+
+                <source>/* Returns an immutable copy of e. */
+
+Element immutable = e.getImmutable();
+                </source>
+
+            </subsection>
+
+        </section>
+    </body>
+</document>

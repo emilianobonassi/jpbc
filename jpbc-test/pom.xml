@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>it.unisa.dia.gas</groupId>
+        <artifactId>jpbc</artifactId>
+        <version>2.0.0</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>jpbc-test</artifactId>
+    <packaging>jar</packaging>
+    <version>2.0.0</version>
+    <name>JPBC - Test</name>
+    <url>http://gas.dia.unisa.it/</url>
+    <description>
+    </description>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>it.unisa.dia.gas</groupId>
+            <artifactId>jpbc-api</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>it.unisa.dia.gas</groupId>
+            <artifactId>jpbc-plaf</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>it.unisa.dia.gas</groupId>
+            <artifactId>jpbc-mm</artifactId>
+            <version>2.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>it.unisa.dia.gas</groupId>
+            <artifactId>jpbc-pbc</artifactId>
+            <version>2.0.0</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+</project>

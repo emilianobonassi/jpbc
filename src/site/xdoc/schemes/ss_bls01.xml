@@ -1,0 +1,117 @@
+<!DOCTYPE document PUBLIC
+        "-//Apache Software Foundation//DTD XDOC 1.0//EN"
+        "http://maven.apache.org/dtd/xdoc_1_0.dtd">
+<document>
+    <properties>
+        <title>Java Pairing-Based Cryptography Library : Schemes - Short signatures from the Weil pairing</title>
+        <author email="jpbclib@gmail.com">Angelo De Caro</author>
+    </properties>
+
+    <body>
+        <section name="Short signatures from the Weil pairing">
+            <subsection name="Authors">
+                D. Boneh, B. Lynn, and H. Shacham.
+            </subsection>
+
+            <subsection name="Abstract">
+                We introduce a short signature scheme based on the Computational Diffie-Hellman assumption on certain
+                elliptic and hyper-elliptic curves. For standard security parameters, the signature length is about
+                half that of a DSA signature with a similar level of security. Our short signature scheme is designed
+                for systems where signatures are typed in by a human or are sent over a low-bandwidth channel. We survey
+                a number of properties of our signature scheme such as signature aggregation and batch verification.
+            </subsection>
+
+            <subsection name="URL">
+                <a href="http://crypto.stanford.edu/~dabo/abstracts/weilsigs.html">
+                    http://crypto.stanford.edu/~dabo/abstracts/weilsigs.html
+                </a>
+            </subsection>
+        </section>
+
+        <section name="Usage">
+<pre>
+
+<a name="l1"><span class="ln">1    </span></a><span class="s0">package </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01;
+<a name="l2"><span class="ln">2    </span></a>
+<a name="l3"><span class="ln">3    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.engines.BLS01Signer;
+<a name="l4"><span class="ln">4    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.generators.BLS01KeyPairGenerator;
+<a name="l5"><span class="ln">5    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.generators.BLS01ParametersGenerator;
+<a name="l6"><span class="ln">6    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.params.BLS01KeyGenerationParameters;
+<a name="l7"><span class="ln">7    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.crypto.jpbc.signature.bls01.params.BLS01Parameters;
+<a name="l8"><span class="ln">8    </span></a></span><span class="s0">import </span><span class="s1">it.unisa.dia.gas.plaf.jpbc.pairing.PairingFactory;
+<a name="l9"><span class="ln">9    </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.AsymmetricCipherKeyPair;
+<a name="l10"><span class="ln">10   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CipherParameters;
+<a name="l11"><span class="ln">11   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.CryptoException;
+<a name="l12"><span class="ln">12   </span></a></span><span class="s0">import </span><span class="s1">org.bouncycastle.crypto.digests.SHA256Digest;
+<a name="l13"><span class="ln">13   </span></a>
+<a name="l14"><span class="ln">14   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.assertFalse;
+<a name="l15"><span class="ln">15   </span></a></span><span class="s0">import static </span><span class="s1">org.junit.Assert.assertTrue;
+<a name="l16"><span class="ln">16   </span></a>
+<a name="l17"><span class="ln">17   </span></a></span><span class="s2">/**
+<a name="l18"><span class="ln">18   </span></a> * </span><span class="s3">@author </span><span class="s2">Angelo De Caro (jpbclib@gmail.com)
+<a name="l19"><span class="ln">19   </span></a> */</span><span class="s1">
+<a name="l20"><span class="ln">20   </span></a></span><span class="s0">public class </span><span class="s1">BLS01 {
+<a name="l21"><span class="ln">21   </span></a>
+<a name="l22"><span class="ln">22   </span></a>    </span><span class="s0">public </span><span class="s1">BLS01() {
+<a name="l23"><span class="ln">23   </span></a>    }
+<a name="l24"><span class="ln">24   </span></a>
+<a name="l25"><span class="ln">25   </span></a>
+<a name="l26"><span class="ln">26   </span></a>    </span><span class="s0">public </span><span class="s1">BLS01Parameters setup() {
+<a name="l27"><span class="ln">27   </span></a>        BLS01ParametersGenerator setup = </span><span class="s0">new </span><span class="s1">BLS01ParametersGenerator();
+<a name="l28"><span class="ln">28   </span></a>        setup.init(PairingFactory.getPairingParameters(</span><span class="s4">&quot;params/curves/a.properties&quot;</span><span class="s1">));
+<a name="l29"><span class="ln">29   </span></a>
+<a name="l30"><span class="ln">30   </span></a>        </span><span class="s0">return </span><span class="s1">setup.generateParameters();
+<a name="l31"><span class="ln">31   </span></a>    }
+<a name="l32"><span class="ln">32   </span></a>
+<a name="l33"><span class="ln">33   </span></a>    </span><span class="s0">public </span><span class="s1">AsymmetricCipherKeyPair keyGen(BLS01Parameters parameters) {
+<a name="l34"><span class="ln">34   </span></a>        BLS01KeyPairGenerator keyGen = </span><span class="s0">new </span><span class="s1">BLS01KeyPairGenerator();
+<a name="l35"><span class="ln">35   </span></a>        keyGen.init(</span><span class="s0">new </span><span class="s1">BLS01KeyGenerationParameters(</span><span class="s0">null</span><span class="s1">, parameters));
+<a name="l36"><span class="ln">36   </span></a>
+<a name="l37"><span class="ln">37   </span></a>        </span><span class="s0">return </span><span class="s1">keyGen.generateKeyPair();
+<a name="l38"><span class="ln">38   </span></a>    }
+<a name="l39"><span class="ln">39   </span></a>
+<a name="l40"><span class="ln">40   </span></a>    </span><span class="s0">public byte</span><span class="s1">[] sign(String message, CipherParameters privateKey) {
+<a name="l41"><span class="ln">41   </span></a>        </span><span class="s0">byte</span><span class="s1">[] bytes = message.getBytes();
+<a name="l42"><span class="ln">42   </span></a>
+<a name="l43"><span class="ln">43   </span></a>        BLS01Signer signer = </span><span class="s0">new </span><span class="s1">BLS01Signer(</span><span class="s0">new </span><span class="s1">SHA256Digest());
+<a name="l44"><span class="ln">44   </span></a>        signer.init(</span><span class="s0">true</span><span class="s1">, privateKey);
+<a name="l45"><span class="ln">45   </span></a>        signer.update(bytes, </span><span class="s5">0</span><span class="s1">, bytes.length);
+<a name="l46"><span class="ln">46   </span></a>
+<a name="l47"><span class="ln">47   </span></a>        </span><span class="s0">byte</span><span class="s1">[] signature = </span><span class="s0">null</span><span class="s1">;
+<a name="l48"><span class="ln">48   </span></a>        </span><span class="s0">try </span><span class="s1">{
+<a name="l49"><span class="ln">49   </span></a>            signature = signer.generateSignature();
+<a name="l50"><span class="ln">50   </span></a>        } </span><span class="s0">catch </span><span class="s1">(CryptoException e) {
+<a name="l51"><span class="ln">51   </span></a>            </span><span class="s0">throw new </span><span class="s1">RuntimeException(e);
+<a name="l52"><span class="ln">52   </span></a>        }
+<a name="l53"><span class="ln">53   </span></a>        </span><span class="s0">return </span><span class="s1">signature;
+<a name="l54"><span class="ln">54   </span></a>    }
+<a name="l55"><span class="ln">55   </span></a>
+<a name="l56"><span class="ln">56   </span></a>    </span><span class="s0">public boolean </span><span class="s1">verify(</span><span class="s0">byte</span><span class="s1">[] signature, String message, CipherParameters publicKey) {
+<a name="l57"><span class="ln">57   </span></a>        </span><span class="s0">byte</span><span class="s1">[] bytes = message.getBytes();
+<a name="l58"><span class="ln">58   </span></a>
+<a name="l59"><span class="ln">59   </span></a>        BLS01Signer signer = </span><span class="s0">new </span><span class="s1">BLS01Signer(</span><span class="s0">new </span><span class="s1">SHA256Digest());
+<a name="l60"><span class="ln">60   </span></a>        signer.init(</span><span class="s0">false</span><span class="s1">, publicKey);
+<a name="l61"><span class="ln">61   </span></a>        signer.update(bytes, </span><span class="s5">0</span><span class="s1">, bytes.length);
+<a name="l62"><span class="ln">62   </span></a>
+<a name="l63"><span class="ln">63   </span></a>        </span><span class="s0">return </span><span class="s1">signer.verifySignature(signature);
+<a name="l64"><span class="ln">64   </span></a>    }
+<a name="l65"><span class="ln">65   </span></a>
+<a name="l66"><span class="ln">66   </span></a>    </span><span class="s0">public static void </span><span class="s1">main(String[] args) {
+<a name="l67"><span class="ln">67   </span></a>        BLS01 bls01 = </span><span class="s0">new </span><span class="s1">BLS01();
+<a name="l68"><span class="ln">68   </span></a>
+<a name="l69"><span class="ln">69   </span></a>        </span><span class="s2">// Setup</span><span class="s1">
+<a name="l70"><span class="ln">70   </span></a>        AsymmetricCipherKeyPair keyPair = bls01.keyGen(bls01.setup());
+<a name="l71"><span class="ln">71   </span></a>
+<a name="l72"><span class="ln">72   </span></a>        </span><span class="s2">// Test same message</span><span class="s1">
+<a name="l73"><span class="ln">73   </span></a>        String message = </span><span class="s4">&quot;Hello World!&quot;</span><span class="s1">;
+<a name="l74"><span class="ln">74   </span></a>        assertTrue(bls01.verify(bls01.sign(message, keyPair.getPrivate()), message, keyPair.getPublic()));
+<a name="l75"><span class="ln">75   </span></a>
+<a name="l76"><span class="ln">76   </span></a>        </span><span class="s2">// Test different messages</span><span class="s1">
+<a name="l77"><span class="ln">77   </span></a>        assertFalse(bls01.verify(bls01.sign(message, keyPair.getPrivate()), </span><span class="s4">&quot;Hello Italy!&quot;</span><span class="s1">, keyPair.getPublic()));
+<a name="l78"><span class="ln">78   </span></a>    }
+<a name="l79"><span class="ln">79   </span></a>
+<a name="l80"><span class="ln">80   </span></a>}
+<a name="l81"><span class="ln">81   </span></a></span></pre>
+        </section>
+    </body>
+</document>

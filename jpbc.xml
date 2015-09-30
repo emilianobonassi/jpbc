@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jpbc" default="benchmark">
+
+    <!-- Options -->
+
+    <dirname property="basedir" file="${ant.file}"/>
+
+    <path id="runtime.classpath">
+        <pathelement location="${basedir}/jars/jpbc-api-2.0.0.jar"/>
+        <pathelement location="${basedir}/jars/jpbc-plaf-2.0.0.jar"/>
+        <pathelement location="${basedir}/jars/jpbc-pbc-2.0.0.jar"/>
+        <pathelement location="${basedir}/jars/jpbc-crypto-2.0.0.jar"/>
+        <pathelement location="${basedir}/jars/jpbc-mm-2.0.0.jar"/>
+        <pathelement location="${basedir}/jars/jpbc-benchmark-2.0.0.jar"/>
+
+        <pathelement location="${basedir}/jars/jna-3.2.5.jar"/>
+        <pathelement location="${basedir}/jars/bcprov-jdk16-1.46.jar"/>
+    </path>
+
+
+    <!-- Benchmarks -->
+
+    <target name="benchmark">
+
+        <echo message="BaseDir = ${basedir}"/>
+        <echo message="Starting Benchmarks..."/>
+
+        <java fork="true" classname="it.unisa.dia.gas.jpbc.benchmark.ComparisonBenchmarker">
+            <jvmarg value="-Xms512m"/>
+            <jvmarg value="-Xmx1024m"/>
+            <arg value="1000"/>
+            <arg value="${basedir}/params/a.properties"/>
+            <arg value="${basedir}/params/a1.properties"/>
+            <arg value="${basedir}/params/d159.properties"/>
+            <arg value="${basedir}/params/d201.properties"/>
+            <arg value="${basedir}/params/d224.properties"/>
+            <arg value="${basedir}/params/e.properties"/>
+            <arg value="${basedir}/params/f.properties"/>
+            <arg value="${basedir}/params/g149.properties"/>
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+
+    </target>
+
+
+    <target name="pbcinfo">
+
+        <java fork="true" classname="it.unisa.dia.gas.plaf.jpbc.wrapper.jna.WrapperLibraryInfo">
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+
+    </target>
+
+
+    <!-- Curve Generators -->
+
+    <target name="typeA">
+        <java fork="true" classname="it.unisa.dia.gas.plaf.jpbc.pairing.a.TypeACurveGenerator">
+            <arg line="${args}"/>
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="typeA1">
+        <java fork="true" classname="it.unisa.dia.gas.plaf.jpbc.pairing.a1.TypeA1CurveGenerator">
+            <arg line="${args}"/>
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="typeD">
+        <java fork="true" classname="it.unisa.dia.gas.plaf.jpbc.pbc.curve.PBCTypeDCurveGenerator">
+            <arg line="${args}"/>
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="typeE">
+        <java fork="true" classname="it.unisa.dia.gas.plaf.jpbc.pairing.e.TypeECurveGenerator">
+            <arg line="${args}"/>
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+    <!-- CTL13MM Generators -->
+
+    <target name="ctl13">
+        <java fork="true" classname="it.unisa.dia.gas.plaf.jpbc.mm.clt13.generators.CTL13MMMultiThreadPublicParameterGenerator">
+            <arg line="${args}"/>
+            <classpath>
+                <path refid="runtime.classpath"/>
+            </classpath>
+        </java>
+    </target>
+
+
+
+</project>
