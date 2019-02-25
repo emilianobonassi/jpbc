@@ -47,7 +47,7 @@
         <module>jpbc-test</module>
         <module>jpbc-benchmark</module>
         <module>jpbc-site-skin</module>
-        <module>jpbc-android</module>
+        <!--<module>jpbc-android</module>-->
     </modules>
 
     <repositories>
